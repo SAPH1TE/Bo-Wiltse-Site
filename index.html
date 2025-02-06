@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bo Wiltse</title>
+    <link rel="stylesheet" href="index_files/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+        :root {
+            --primary-color: #548ecc;
+            --secondary-color: #548ecc;
+            --accent-color: #548ecc;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --light-text: #ffffff;
+            --gray-text: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Raleway', sans-serif;
+            line-height: 2;
+        }
+
+        .cursor-glow {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.5;
+            z-index: 9999;
+            transition: transform 0.2s;
+            display: none;
+        }
+
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 1.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+            nav a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--primary-color);
+                transition: width 0.3s;
+            }
+
+            nav a:hover::after {
+                width: 100%;
+            }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), var(--darker-bg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at center, rgba(255,77,90,0.2) 0%, transparent 70%);
+            }
+
+            .hero h1 {
+                font-family: 'Playfair Display', serif;
+                font-size: 4.5rem;
+                margin-bottom: 1rem;
+                color: var(--light-text);
+                text-shadow: 0 0 10px rgba(255,77,90,0.5);
+                animation: titleFloat 5s ease-in-out infinite;
+            }
+
+        @keyframes titleFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+            .cta-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 20px rgba(255,77,90,0.3);
+                background-color: transparent;
+                border-color: var(--primary-color);
+            }
+
+        .services {
+            padding: 8rem 2rem;
+            background-color: var(--darker-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--light-text);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            background: linear-gradient(145deg, #1a1a1a, #222);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+            .service-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            }
+
+                /* Hide text and buttons on hover */
+                .service-card:hover .content {
+                    opacity: 0;
+                }
+
+                /* Keep the video visible */
+                .service-card:hover .video-background {
+                    opacity: 1;
+                }
+
+            /* Style for the content (text and button) */
+            .service-card .content {
+                position: relative;
+                z-index: 2;
+                transition: opacity 0.3s ease; /* Smooth fade */
+            }
+
+                .service-card .content h3,
+                .service-card .content p,
+                .service-card .content .cta-button {
+                    color: var(--light-text);
+                }
+
+        /* Style for video background */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Keep video behind text */
+            opacity: 0; /* Initially hidden */
+            transition: opacity 3s ease; /* Smooth fade for video */
+        }
+
+        .service-card:hover .video-background {
+            opacity: 1; /* Video is visible when hovering */
+        }
+
+
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+            .video-background video {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+
+        .gallery {
+            padding: 8rem 2rem;
+            background-color: var(--dark-bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 1;
+            background: var(--secondary-color);
+        }
+
+        footer {
+            background-color: var(--darker-bg);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            margin-bottom: 2rem;
+        }
+
+            .social-links a {
+                color: var(--light-text);
+                font-size: 1.5rem;
+                margin: 0 1rem;
+                transition: color 0.3s;
+            }
+
+                .social-links a:hover {
+                    color: var(--primary-color);
+                }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.4rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+                <body>
+                    <div class="cursor-glow" style="display: block; left: 2721px; top: 365px;"></div>
+                    <section class="hero" id="home">
+                        <img src="https://raw.githubusercontent.com/bowiltse/BoWiltseWebsite/main/blue%20n%20brown.png" alt="Bo Wiltse" style="width: 400%; max-width: 800px; height: auto;" />
+                    </section>
+
+                    <section class="services" id="services">
+                        <title>Bo Wiltse | Tattoo Artist &amp; Muralist</title>
+                        <h2 class="section-title">Services</h2>
+                        <div class="services-grid">
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <link rel="stylesheet" href="index_files/all.min.css">
+                            <style>
+                                @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+                                :root {
+                                    --primary-color: #ff4d5a;
+                                    --secondary-color: #2d3436;
+                                    --accent-color: #00b894;
+                                    --dark-bg: #121212;
+                                    --darker-bg: #0a0a0a;
+                                    --light-text: #ffffff;
+                                    --gray-text: #888888;
+                                }
+
+                                * {
+                                    margin: 0;
+                                    padding: 0;
+                                    box-sizing: border-box;
+                                }
+
+                                body {
+                                    background-color: var(--dark-bg);
+                                    color: var(--light-text);
+                                    font-family: 'Raleway', sans-serif;
+                                    line-height: 1.6;
+                                }
+
+                                .cursor-glow {
+                                    width: 20px;
+                                    height: 20px;
+                                    background: var(--primary-color);
+                                    border-radius: 50%;
+                                    position: fixed;
+                                    pointer-events: none;
+                                    opacity: 0.5;
+                                    z-index: 9999;
+                                    transition: transform 0.2s;
+                                    display: none;
+                                }
+
+                                header {
+                                    background-color: rgba(10, 10, 10, 0.95);
+                                    padding: 1.5rem;
+                                    position: fixed;
+                                    width: 100%;
+                                    top: 0;
+                                    z-index: 1000;
+                                    backdrop-filter: blur(10px);
+                                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                                }
+
+                                nav ul {
+                                    display: flex;
+                                    justify-content: center;
+                                    list-style: none;
+                                    gap: 3rem;
+                                }
+
+                                nav a {
+                                    color: var(--light-text);
+                                    text-decoration: none;
+                                    font-size: 1.1rem;
+                                    font-weight: 600;
+                                    transition: all 0.3s;
+                                    position: relative;
+                                    padding: 0.5rem 0;
+                                }
+
+                                    nav a::after {
+                                        content: '';
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        width: 0;
+                                        height: 2px;
+                                        background: var(--primary-color);
+                                        transition: width 0.3s;
+                                    }
+
+                                    nav a:hover::after {
+                                        width: 100%;
+                                    }
+
+                                .hero {
+                                    height: 100vh;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    align-items: center;
+                                    text-align: center;
+                                    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), var(--darker-bg);
+                                    background-size: cover;
+                                    background-position: center;
+                                    position: relative;
+                                    overflow: hidden;
+                                }
+
+                                    .hero::before {
+                                        content: '';
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background: radial-gradient(circle at center, rgba(255,77,90,0.2) 0%, transparent 70%);
+                                    }
+
+                                    .hero h1 {
+                                        font-family: 'Playfair Display', serif;
+                                        font-size: 4.5rem;
+                                        margin-bottom: 1rem;
+                                        color: var(--light-text);
+                                        text-shadow: 0 0 10px rgba(255,77,90,0.5);
+                                        animation: titleFloat 5s ease-in-out infinite;
+                                    }
+
+                                @keyframes titleFloat {
+                                    0%, 100% {
+                                        transform: translateY(0);
+                                    }
+
+                                    50% {
+                                        transform: translateY(-10px);
+                                    }
+                                }
+
+                                .hero p {
+                                    font-size: 1.8rem;
+                                    color: var(--gray-text);
+                                    margin-bottom: 2rem;
+                                    font-weight: 300;
+                                }
+
+                                .cta-button {
+                                    display: inline-block;
+                                    background-color: var(--primary-color);
+                                    color: var(--light-text);
+                                    padding: 1.2rem 3rem;
+                                    border-radius: 50px;
+                                    text-decoration: none;
+                                    font-weight: 600;
+                                    transition: all 0.3s;
+                                    position: relative;
+                                    overflow: hidden;
+                                    border: 2px solid transparent;
+                                }
+
+                                    .cta-button:hover {
+                                        transform: translateY(-3px);
+                                        box-shadow: 0 10px 20px rgba(255,77,90,0.3);
+                                        background-color: transparent;
+                                        border-color: var(--primary-color);
+                                    }
+
+                                .services {
+                                    padding: 8rem 2rem;
+                                    background-color: var(--darker-bg);
+                                }
+
+                                .section-title {
+                                    text-align: center;
+                                    font-size: 2.5rem;
+                                    margin-bottom: 4rem;
+                                    font-family: 'Playfair Display', serif;
+                                    color: var(--light-text);
+                                }
+
+                                .services-grid {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                                    gap: 3rem;
+                                    max-width: 1400px;
+                                    margin: 0 auto;
+                                    padding: 0 2rem;
+                                }
+
+                                /* Ensure the .service-card behaves properly */
+                                .service-card {
+                                    position: relative;
+                                    background: linear-gradient(145deg, #1a1a1a, #222);
+                                    padding: 3rem;
+                                    border-radius: 20px;
+                                    text-align: center;
+                                    overflow: hidden;
+                                    border: 1px solid rgba(255, 255, 255, 0.1);
+                                    transition: transform 0.3s ease-in-out;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: space-between; /* Ensure vertical spacing between items */
+                                    height: 100%; /* Ensure the card maintains its height */
+                                }
+
+                                    /* Hover effect on service card */
+                                    .service-card:hover {
+                                        transform: translateY(-10px);
+                                        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+                                    }
+
+                                    /* Initially hide content opacity */
+                                    .service-card .content {
+                                        opacity: 0.7; /* Make content slightly transparent */
+                                        transition: opacity 0.3s ease; /* Smooth opacity change */
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        align-items: center; /* Center text and button */
+                                        gap: 1rem; /* Add gap between the items */
+                                    }
+
+                                    /* On hover, make content fully visible */
+                                    .service-card:hover .content {
+                                        opacity: 1;
+                                    }
+
+                                .card-link {
+                                    display: block; /* Makes the entire anchor tag a block element */
+                                    text-decoration: none; /* Removes the default link styling */
+                                    color: inherit; /* Ensures the text color is inherited */
+                                }
+
+                                /* Content styling */
+                                .content {
+                                    position: relative;
+                                    z-index: 2;
+                                    transition: opacity 0.3s ease;
+                                    width: 100%; /* Ensure content takes full width of the card */
+                                }
+
+                                    .content h3,
+                                    .content p,
+                                    .content .cta-button {
+                                        color: var(--light-text);
+                                        margin: 0; /* Remove default margin to avoid spacing issues */
+                                    }
+
+                                /* Video background */
+                                .video-background {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    z-index: 1; /* Keep the video behind content */
+                                }
+
+                                .service-card .video-background video {
+                                    object-fit: cover; /* Ensure video fills the background */
+                                    width: 100%;
+                                    height: 100%;
+                                }
+
+                                /* Button Styling */
+                                .cta-button {
+                                    display: inline-block;
+                                    background-color: var(--primary-color);
+                                    color: var(--light-text);
+                                    padding: 1.2rem 3rem;
+                                    border-radius: 50px;
+                                    text-decoration: none;
+                                    font-weight: 600;
+                                    transition: all 0.3s;
+                                    position: relative;
+                                    overflow: hidden;
+                                    border: 2px solid transparent;
+                                }
+
+                                    .cta-button:hover {
+                                        transform: translateY(-3px);
+                                        box-shadow: 0 10px 20px rgba(255,77,90,0.3);
+                                        background-color: transparent;
+                                        border-color: var(--primary-color);
+                                    }
+
+
+                                    .cta-button:hover {
+                                        transform: translateY(-3px);
+                                        box-shadow: 0 10px 20px rgba(255,77,90,0.3);
+                                        background-color: transparent;
+                                        border-color: var(--primary-color);
+                                    }
+
+                                .gallery {
+                                    padding: 8rem 2rem;
+                                    background-color: var(--dark-bg);
+                                }
+
+                                .gallery-grid {
+                                    display: grid;
+                                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                                    gap: 2rem;
+                                    max-width: 1400px;
+                                    margin: 0 auto;
+                                }
+
+                                .gallery-item {
+                                    position: relative;
+                                    overflow: hidden;
+                                    border-radius: 15px;
+                                    aspect-ratio: 1;
+                                    background: var(--secondary-color);
+                                }
+
+                                footer {
+                                    background-color: var(--darker-bg);
+                                    padding: 4rem 2rem;
+                                    text-align: center;
+                                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                                }
+
+                                .social-links {
+                                    margin-bottom: 2rem;
+                                }
+
+                                    .social-links a {
+                                        color: var(--light-text);
+                                        font-size: 1.5rem;
+                                        margin: 0 1rem;
+                                        transition: color 0.3s;
+                                    }
+
+                                        .social-links a:hover {
+                                            color: var(--primary-color);
+                                        }
+
+                                @media (max-width: 768px) {
+                                    nav ul {
+                                        flex-direction: column;
+                                        gap: 1rem;
+                                    }
+
+                                    .hero h1 {
+                                        font-size: 3rem;
+                                    }
+
+                                    .hero p {
+                                        font-size: 1.4rem;
+                                    }
+
+                                    .services-grid {
+                                        grid-template-columns: 1fr;
+                                    }
+                                }
+                            </style>
+                            <a href="your-link-here" class="card-link">
+                                <div class="service-card">
+                                    <div class="video-background">
+                                        <video autoplay muted loop>
+                                            <source src="https://github.com/bowiltse/BoWiltseWebsite/raw/refs/heads/main/202411241640.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                    <h3>Tattoos</h3>
+                                    <p>Description</p>
+                                </div>
+                            </a>
+
+                            <a href="your-link-here" class="card-link">
+                                <div class="service-card">
+                                    <div class="video-background">
+                                        <video autoplay muted loop>
+                                            <source src="https://github.com/bowiltse/BoWiltseWebsite/raw/refs/heads/main/202411241640.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                    <h3>Murals</h3>
+                                    <p>Description</p>
+                                </div>
+                            </a>
+                            <a href="your-link-here" class="card-link">
+                                <div class="service-card">
+                                    <div class="video-background">
+                                        <video autoplay muted loop>
+                                            <source src="https://github.com/bowiltse/BoWiltseWebsite/raw/refs/heads/main/202411241640.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                    <h3>Art</h3>
+                                    <p>Description</p>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="#contact" class="cta-button">Contact</a>   
+                    </section>
+                    <footer>
+                        <div class="social-links" id="contact">
+                            <a href="https://www.instagram.com/bowiltse/?hl=en"><i class="N/A"></i>instagram</a>
+                            <a href="https://www.tiktok.com/@borillatron"><i class="N/A"></i>Tiktok</a>
+                            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="N/A"></i>only fans</a>
+                        </div>
+                    </footer>
+                </body></html>  
