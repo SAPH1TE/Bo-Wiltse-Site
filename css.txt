@@ -221,9 +221,9 @@ nav a:hover::after {
 }
 
 .card-image {
-    width: 95%;
+    width: auto;
     max-width: 300px;
-    height: auto;
+    height: 350;
     border-radius: 30px;
     margin: 1rem 0;
     padding: 0 1%;
