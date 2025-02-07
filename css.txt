@@ -221,7 +221,7 @@ nav a:hover::after {
 }
 
 .card-image {
-    width: 90%; /* Reduce width to leave padding on the sides */
+    width: 95%; /* Reduce width to leave padding on the sides */
     max-width: 300px; /* Optional: Limit the maximum width of the image */
     height: auto; /* Maintain aspect ratio */
     border-radius: 90px; /* Optional: Add rounded corners */
