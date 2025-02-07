@@ -1,21 +1,4 @@
 <!DOCTYPE html>
-<script>
-    (function () {
-        const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-        let codePosition = 0;
-
-        document.addEventListener('keydown', function (e) {
-            if (e.keyCode === konamiCode[codePosition]) {
-                codePosition++;
-                if (codePosition === konamiCode.length) {
-                    window.location.href = 'https://i.etsystatic.com/33077571/r/il/1349f0/3829755353/il_fullxfull.3829755353_b8d0.jpg';
-                }
-            } else {
-                codePosition = 0;
-            }
-        });
-    })();
-</script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -81,3 +64,20 @@
     </footer>
 </body>
 </html>
+<script>
+    (function () {
+        const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        let codePosition = 0;
+
+        document.addEventListener('keydown', function (e) {
+            if (e.keyCode === konamiCode[codePosition]) {
+                codePosition++;
+                if (codePosition === konamiCode.length) {
+                    window.location.href = 'https://i.etsystatic.com/33077571/r/il/1349f0/3829755353/il_fullxfull.3829755353_b8d0.jpg';
+                }
+            } else {
+                codePosition = 0;
+            }
+        });
+    })();
+</script>
