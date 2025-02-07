@@ -221,10 +221,10 @@ nav a:hover::after {
 }
 
 .card-image {
-    width: auto;
+    width: 300;
     max-width: 300px;
     height: 350;
-    border-radius: 30px;
+    border-radius: 0px;
     margin: 1rem 0;
     padding: 0 1%;
 }
