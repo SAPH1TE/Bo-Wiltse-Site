@@ -224,7 +224,7 @@ nav a:hover::after {
     width: 95%;
     max-width: 300px;
     height: auto;
-    border-radius: 90px;
+    border-radius: 30px;
     margin: 1rem 0;
     padding: 0 1%;
 }
