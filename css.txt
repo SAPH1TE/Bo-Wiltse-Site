@@ -224,7 +224,7 @@ nav a:hover::after {
     width: 90%; /* Reduce width to leave padding on the sides */
     max-width: 300px; /* Optional: Limit the maximum width of the image */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Optional: Add rounded corners */
+    border-radius: 90px; /* Optional: Add rounded corners */
     margin: 1rem 0; /* Add spacing above and below the image */
     padding: 0 1%; /* Add padding to the sides of the image */
 }
