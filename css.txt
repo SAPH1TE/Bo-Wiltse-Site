@@ -217,16 +217,16 @@ nav a:hover::after {
 .service-card p {
     font-size: 1.2rem;
     color: var(--gray-text);
-    margin-top: 1rem; /* Spacing above the description */
+    margin-top: 1rem;
 }
 
 .card-image {
-    width: 95%; /* Reduce width to leave padding on the sides */
-    max-width: 300px; /* Optional: Limit the maximum width of the image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 90px; /* Optional: Add rounded corners */
-    margin: 1rem 0; /* Add spacing above and below the image */
-    padding: 0 1%; /* Add padding to the sides of the image */
+    width: 95%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 90px;
+    margin: 1rem 0;
+    padding: 0 1%;
 }
 
 .gallery {
