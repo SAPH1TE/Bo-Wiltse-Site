@@ -17,15 +17,15 @@
     </nav>
 </header>
 <body>
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Bo Wiltse</h1>
-            <p>Artist | Tattooist | Creator</p>
-            <a href="#services" class="cta-button">Explore My Work</a>
-        </div>
-        <div class="hero-overlay"></div>
-    </section>
-    <section class="services" id="services">
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Bo Wiltse</h1>
+        <p>Artist | Tattooist | Creator</p>
+        <a href="#services" class="cta-button">Explore My Work</a>
+    </div>
+    <div class="hero-overlay"></div>
+</section>
+<section class="services" id="services">
     <h2 class="section-title">Services</h2>
     <div class="services-grid">
         <a class="card-link">
@@ -146,7 +146,7 @@
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="null"></i>only fans</a>
         </div>
     </footer>
-</body>
+ </body>
 </html>
 <script>
     /* silly easter egg :P */
@@ -263,20 +263,20 @@
         padding: 0.5rem 0;
     }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s;
-        }
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        transition: width 0.3s;
+    }
 
-        nav a:hover::after {
-            width: 100%;
-        }
+    nav a:hover::after {
+        width: 100%;
+    }
 
     .hero {
         height: 100vh;
@@ -303,22 +303,22 @@
     }
 
     .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(255,77,90,0.2) 0%, transparent 70%);
-        }
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(255,77,90,0.2) 0%, transparent 70%);
+    }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            margin-bottom: 1rem;
-            color: var(--light-text);
-            text-shadow: 0 0 10px rgba(255,77,90,0.5);
-        }
+    .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 4.5rem;
+        margin-bottom: 1rem;
+        color: var(--light-text);
+        text-shadow: 0 0 10px rgba(255,77,90,0.5);
+    }
 
     @keyframes titleFloat {
         0%, 100% {
@@ -351,12 +351,12 @@
         border: 2px solid transparent;
     }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255,77,90,0.3);
-            background-color: transparent;
-            border-color: var(--primary-color);
-        }
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255,77,90,0.3);
+        background-color: transparent;
+        border-color: var(--primary-color);
+    }
 
     .services {
         padding: 8rem 2rem;
@@ -396,42 +396,42 @@
         align-items: center;
     }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
 
-        .service-card .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 3s ease;
-        }
+    .service-card .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 3s ease;
+    }
 
-        .service-card:hover .video-background {
-            opacity: 1;
-        }
+    .service-card:hover .video-background {
+        opacity: 1;
+    }
 
-        .service-card .video-background video {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
+    .service-card .video-background video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 
-        .service-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
+    .service-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
 
-        .service-card p {
-            font-size: 1.2rem;
-            color: var(--gray-text);
-            margin-top: 1rem;
-        }
+    .service-card p {
+        font-size: 1.2rem;
+        color: var(--gray-text);
+        margin-top: 1rem;
+    }
 
     .card-image {
         width: 300px;
@@ -471,42 +471,42 @@
         margin-bottom: 2rem;
     }
 
-        .gallery-preview .gallery-item {
-            flex: 0 0 auto;
-            width: 200px; /* Adjust the width as needed */
-            height: 200px; /* Adjust the height as needed */
-            border-radius: 10px;
-            overflow: hidden;
-        }
+    .gallery-preview .gallery-item {
+        flex: 0 0 auto;
+        width: 200px; /* Adjust the width as needed */
+        height: 200px; /* Adjust the height as needed */
+        border-radius: 10px;
+        overflow: hidden;
+    }
 
-        .gallery-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .gallery-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
     .gallery-full {
         display: none;
         padding: 2rem 0;
     }
 
-        .gallery-full .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
+    .gallery-full .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+    }
 
-        .gallery-full .gallery-item {
-            aspect-ratio: 1;
-            overflow: hidden;
-            border-radius: 10px;
-        }
+    .gallery-full .gallery-item {
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: 10px;
+    }
 
-        .gallery-full img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .gallery-full img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
     footer {
         background-color: var(--darker-bg);
@@ -519,16 +519,16 @@
         margin-bottom: 2rem;
     }
 
-        .social-links a {
-            color: var(--light-text);
-            font-size: 1.5rem;
-            margin: 0 1rem;
-            transition: color 0.3s;
-        }
+    .social-links a {
+        color: var(--light-text);
+        font-size: 1.5rem;
+        margin: 0 1rem;
+        transition: color 0.3s;
+    }
 
-            .social-links a:hover {
-                color: var(--primary-color);
-            }
+    .social-links a:hover {
+        color: var(--primary-color);
+    }
 
     @media (max-width: 768px) {
         nav ul {
