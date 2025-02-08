@@ -67,72 +67,13 @@
     </div>
     <section class="gallery" id="gallery">
         <h2 class="section-title">Gallery</h2>
-        <div class="gallery-preview">
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image p1">
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image p2">
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image p3">
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image p4">
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/300" alt="Gallery Image p5">
-            </div>
+        <div class="gallery-preview" id="gallery-preview">
+            <!-- Preview images will be dynamically inserted here -->
         </div>
         <button id="show-more-gallery" class="cta-button">Show More</button>
-        <div class="gallery-full" style="display: none;">
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 5">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 6">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 7">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 8">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 9">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 10">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 11">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 12">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 13">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 14">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300" alt="Gallery Image 15">
-                </div>
-
+        <div class="gallery-full" id="gallery-full" style="display: none;">
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Full gallery images will be dynamically inserted here -->
             </div>
         </div>
     </section>
@@ -149,11 +90,9 @@
  </body>
 </html>
 <script>
-    /* silly easter egg :P */
-    (function () {
+    (function () {  /* silly easter egg*/
         const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
         let codePosition = 0;
-
         document.addEventListener('keydown', function (e) {
             if (e.keyCode === konamiCode[codePosition]) {
                 codePosition++;
@@ -165,7 +104,6 @@
             }
         });
     })();
-
     document.getElementById('show-more-gallery').addEventListener('click', function () {
         const fullGallery = document.querySelector('.gallery-full');
         if (fullGallery.style.display === 'none') {
@@ -206,6 +144,40 @@
             this.textContent = 'Show More';
         }
     });
+    document.addEventListener('DOMContentLoaded', function () {
+        const galleryPreview = document.getElementById('gallery-preview');
+        const galleryFull = document.getElementById('gallery-full');
+        const galleryGrid = document.getElementById('gallery-grid');
+        const showMoreButton = document.getElementById('show-more-gallery');
+        const galleryJsonUrl = 'https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/gallery.json';
+        fetch(galleryJsonUrl)
+            .then(response => response.json())
+            .then(data => {
+                const images = data.images;
+                images.slice(0, 5).forEach(imageUrl => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.innerHTML = `<img src="${imageUrl}" alt="Gallery Image">`;
+                    galleryPreview.appendChild(galleryItem);
+                });
+                images.forEach(imageUrl => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.innerHTML = `<img src="${imageUrl}" alt="Gallery Image">`;
+                    galleryGrid.appendChild(galleryItem);
+                });
+                showMoreButton.addEventListener('click', function () {
+                    if (galleryFull.style.display === 'none') {
+                        galleryFull.style.display = 'block';
+                        this.textContent = 'Show Less';
+                    } else {
+                        galleryFull.style.display = 'none';
+                        this.textContent = 'Show More';
+                    }
+                });
+            })
+            .catch(error => console.error('Error fetching gallery data:', error));
+    });
 </script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
@@ -232,8 +204,6 @@
         font-family: 'Raleway', sans-serif;
         line-height: 1.6;
     }
-
-
 
     header {
         background-color: rgba(10, 10, 10, 0.95);
@@ -349,7 +319,11 @@
         position: relative;
         overflow: hidden;
         border: 2px solid transparent;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
     }
+
 
     .cta-button:hover {
         transform: translateY(-3px);
@@ -455,28 +429,12 @@
         margin: 0 auto;
     }
 
-    .gallery-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 15px;
-        aspect-ratio: 1;
-        background: var(--secondary-color);
-    }
-
     .gallery-preview {
         display: flex;
         overflow-x: auto;
         gap: 1rem;
         padding: 1rem 0;
         margin-bottom: 2rem;
-    }
-
-    .gallery-preview .gallery-item {
-        flex: 0 0 auto;
-        width: 200px; /* Adjust the width as needed */
-        height: 200px; /* Adjust the height as needed */
-        border-radius: 10px;
-        overflow: hidden;
     }
 
     .gallery-preview img {
@@ -494,12 +452,6 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 1rem;
-    }
-
-    .gallery-full .gallery-item {
-        aspect-ratio: 1;
-        overflow: hidden;
-        border-radius: 10px;
     }
 
     .gallery-full img {
