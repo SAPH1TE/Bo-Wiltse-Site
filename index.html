@@ -2,21 +2,183 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="about:blank">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bo Wiltse</title>
+    <link rel="icon" href="https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/470345621_957071916273551_8915771205857312997_n.png?raw=true">
+    <style>
+        /* Import Fonts from Bunny CDN (CORS-friendly) */
+        @import url('https://fonts.bunny.net/css?family=Raleway:300,400,600,700|Playfair+Display:400,700');
+
+        /* Define CSS Variables */
+        :root {
+            --primary-color: #ff4d5a;
+            --secondary-color: #151718;
+            --accent-color: #00b894;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --light-text: #ffffff;
+            --gray-text: #888888;
+        }
+
+        /* Global Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--dark-bg); color: var(--light-text); font-family: 'Raleway', sans-serif; line-height: 1.6; }
+
+        /* Header */
+        header { background-color: rgba(10, 10, 10, 0.95); padding: 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 3rem; }
+        nav a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
+        nav a:hover::after { width: 100%; }
+
+        /* Hero Section */
+        .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background: url('https://raw.githubusercontent.com/bowiltse/BoWiltseWebsite/main/blue%20n%20brown.png') no-repeat center center/cover; position: relative; overflow: hidden; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)); }
+        .hero-content { z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; margin-bottom: 1rem; color: var(--light-text); text-shadow: 0 0 10px rgba(255,77,90,0.5); animation: glow 2s infinite alternate; }
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(255,77,90,0.5); }
+            100% { text-shadow: 0 0 20px rgba(255,77,90,0.8); }
+        }
+        .hero p { font-size: 1.8rem; color: var(--gray-text); margin-bottom: 2rem; font-weight: 300; }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            box-shadow: 0 0 10px rgba(255, 77, 90, 0.5);
+            margin: 0 auto;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%) rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        .cta-button:hover::before { opacity: 1; width: 100%; height: 100%; }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,77,90,0.3);
+            background-color: transparent;
+            border-color: var(--primary-color);
+        }
+
+        /* About Section */
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 4rem; font-family: 'Playfair Display', serif; color: var(--light-text); position: relative; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background: var(--primary-color); }
+        .about-content { display: flex; align-items: center; gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .about-image { flex: 1; max-width: 300px; position: relative; overflow: hidden; border-radius: 20px; }
+        .about-image img { width: 100%; border-radius: 30px; transition: transform 0.5s; }
+        .about-image:hover img { transform: scale(1.1); }
+        .about-text { flex: 2; text-align: left; }
+        .about-text p { font-size: 1.2rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 2rem; }
+        @media (max-width: 768px) { .about-content { flex-direction: column; text-align: center; } .about-text { text-align: center; } }
+
+        /* Services Section */
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .service-card {
+            position: relative;
+            background: linear-gradient(145deg, #1a1a1a, #222);
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .service-card .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .service-card:hover .video-background { opacity: 1; }
+        .service-card .video-background video { object-fit: cover; width: 100%; height: 100%; }
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            color: var(--light-text);
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .card-image {
+            width: 400px;
+            max-width: 400px;
+            height: auto;
+            border-radius: 30px;
+            margin: 1rem 0;
+            padding: 0 1%;
+            transition: transform 0.5s, filter 0.5s;
+            filter: brightness(0.8);
+        }
+        .card-image:hover {
+            transform: scale(1.05);
+            filter: brightness(1);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 77, 90, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .service-card:hover::before { opacity: 1; }
+
+        /* Footer */
+        footer { background-color: var(--darker-bg); padding: 4rem 2rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .social-links { margin-bottom: 2rem; }
+        .social-links a { color: var(--light-text); font-size: 1.5rem; margin: 0 1rem; transition: color 0.3s; }
+        .social-links a:hover { color: var(--primary-color); }
+
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; gap: 1rem; }
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.4rem; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
+<body>
 <header>
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 </header>
-<body>
 <section class="hero" id="home">
     <div class="hero-content">
         <h1>Bo Wiltse</h1>
@@ -25,479 +187,78 @@
     </div>
     <div class="hero-overlay"></div>
 </section>
+<section class="about" id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+        <div class="about-image">
+            <img src="https://cdn.prod.website-files.com/62d84e447b4f9e7263d31e94/637627ca9eebde45ae5f394c_Underwater-Nun.jpeg" alt="Bo Wiltse Profile Picture">
+        </div>
+        <div class="about-text">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus posuere quam, non suscipit lacus congue id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam iaculis scelerisque scelerisque. Duis convallis quam a ex tincidunt accumsan. Nullam quis finibus nulla. Ut vitae malesuada odio, quis semper magna. Donec in interdum felis. Fusce nec ultrices quam. Quisque a enim ut ligula viverra varius.
+            </p>
+        </div>
+    </div>
+</section>
 <section class="services" id="services">
     <h2 class="section-title">Services</h2>
     <div class="services-grid">
-        <a class="card-link">
-            <div class="service-card">
-                <div class="video-background">
-                    <video autoplay muted loop>
-                        <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Snapinst.app_video_AQMOWKw6Sw6zWuvporNi0-guzM2XIHyt_me189MSCXwju90UDPdt9LRksMj62tPveeQcHjBwPSSMFkHe_z5XWJTYhJnK9Hqj0HHkUYc.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <h3>Tattoos</h3>
-                <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/455920021_532418835830684_5858264236795275127_n.jpg?raw=true" alt="Tattoos" class="card-image">
+        <div class="service-card">
+            <div class="video-background">
+                <video autoplay muted loop>
+                    <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Snapinst.app_video_AQMOWKw6Sw6zWuvporNi0-guzM2XIHyt_me189MSCXwju90UDPdt9LRksMj62tPveeQcHjBwPSSMFkHe_z5XWJTYhJnK9Hqj0HHkUYc.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-        </a>
-        <a class="card-link">
-            <div class="service-card">
-                <div class="video-background">
-                    <video autoplay muted loop>
-                        <source src="https://github.com/bowiltse/BoWiltseWebsite/raw/refs/heads/main/202411241640.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <h3>Murals</h3>
-                <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/67917948_2923282604351963_6682977186747086043_n.jpg?raw=true" alt="Murals" class="card-image">
+            <h3>Tattoos</h3>
+            <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/455920021_532418835830684_5858264236795275127_n.jpg?raw=true" alt="Tattoos" class="card-image">
+        </div>
+        <div class="service-card">
+            <div class="video-background">
+                <video autoplay muted loop>
+                    <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Untitled_Artwork.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-        </a>
-        <a class="card-link">
-            <div class="service-card">
-                <div class="video-background">
-                    <video autoplay muted loop>
-                        <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Untitled_Artwork.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <h3>illustration</h3>
-                <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/Screenshot%202025-02-06%20182055.png?raw=true" alt="Illustrations" class="card-image">
+            <h3>Illustration</h3>
+            <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/Screenshot%202025-02-06%20182055.png?raw=true" alt="Illustrations" class="card-image">
+        </div>
+        <div class="service-card">
+            <div class="video-background">
+                <video autoplay muted loop>
+                    <source src="https://github.com/bowiltse/BoWiltseWebsite/raw/refs/heads/main/202411241640.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-        </a>
+            <h3>Murals</h3>
+            <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/67917948_2923282604351963_6682977186747086043_n.jpg?raw=true" alt="Murals" class="card-image">
+        </div>
     </div>
-    <section class="gallery" id="gallery">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery-preview" id="gallery-preview">
-            <!-- Preview images will be dynamically inserted here -->
-        </div>
-        <button id="show-more-gallery" class="cta-button">Show More</button>
-        <div class="gallery-full" id="gallery-full" style="display: none;">
-            <div class="gallery-grid" id="gallery-grid">
-                <!-- Full gallery images will be dynamically inserted here -->
-            </div>
-        </div>
-    </section>
-    <section class="services" id="contact">
-        <h2 class="section-title">Contact</h2>
-    </section>
-    <footer>
-        <div class="social-links" id="Social">
-            <a href="https://www.instagram.com/bowiltse/?hl=en"><i class="null"></i>instagram</a>
-            <a href="https://www.tiktok.com/@borillatron"><i class="null"></i>Tiktok</a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><i class="null"></i>only fans</a>
-        </div>
-    </footer>
- </body>
-</html>
+</section>
+<footer>
+    <div class="social-links">
+        <a href="https://www.instagram.com/bowiltse/?hl=en">Instagram</a>
+        <a href="https://www.tiktok.com/@borillatron">TikTok</a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">OnlyFans</a>
+    </div>
+</footer>
 <script>
-    (function () {  /* silly easter egg*/
-        const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    (function () {
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
         let codePosition = 0;
+
         document.addEventListener('keydown', function (e) {
-            if (e.keyCode === konamiCode[codePosition]) {
+            if (e.key === konamiCode[codePosition]) {
                 codePosition++;
                 if (codePosition === konamiCode.length) {
                     window.location.href = 'https://i.etsystatic.com/33077571/r/il/1349f0/3829755353/il_fullxfull.3829755353_b8d0.jpg';
+                    codePosition = 0;
                 }
             } else {
                 codePosition = 0;
             }
         });
     })();
-    document.getElementById('show-more-gallery').addEventListener('click', function () {
-        const fullGallery = document.querySelector('.gallery-full');
-        if (fullGallery.style.display === 'none') {
-            fullGallery.style.display = 'block';
-            this.textContent = 'Show Less';
-            (function () {
-                let button = document.evaluate(
-                    "/html/body/section[2]/section[1]/button",
-                    document,
-                    null,
-                    XPathResult.FIRST_ORDERED_NODE_TYPE,
-                    null
-                ).singleNodeValue;
-
-                if (button) {
-                    button.remove();
-                } else {
-                    console.warn("Button not found!");
-                }
-            })();
-            (function () {
-                let button = document.evaluate(
-                    "/html/body/section[2]/section[1]/div[1]",
-                    document,
-                    null,
-                    XPathResult.FIRST_ORDERED_NODE_TYPE,
-                    null
-                ).singleNodeValue;
-
-                if (button) {
-                    button.remove();
-                } else {
-                    console.warn("Button not found!");
-                }
-            })();
-        } else {
-            fullGallery.style.display = 'none';
-            this.textContent = 'Show More';
-        }
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-        const galleryPreview = document.getElementById('gallery-preview');
-        const galleryFull = document.getElementById('gallery-full');
-        const galleryGrid = document.getElementById('gallery-grid');
-        const showMoreButton = document.getElementById('show-more-gallery');
-        const galleryJsonUrl = 'https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/gallery.json';
-        fetch(galleryJsonUrl)
-            .then(response => response.json())
-            .then(data => {
-                const images = data.images;
-                images.slice(0, 5).forEach(imageUrl => {
-                    const galleryItem = document.createElement('div');
-                    galleryItem.className = 'gallery-item';
-                    galleryItem.innerHTML = `<img src="${imageUrl}" alt="Gallery Image">`;
-                    galleryPreview.appendChild(galleryItem);
-                });
-                images.forEach(imageUrl => {
-                    const galleryItem = document.createElement('div');
-                    galleryItem.className = 'gallery-item';
-                    galleryItem.innerHTML = `<img src="${imageUrl}" alt="Gallery Image">`;
-                    galleryGrid.appendChild(galleryItem);
-                });
-                showMoreButton.addEventListener('click', function () {
-                    if (galleryFull.style.display === 'none') {
-                        galleryFull.style.display = 'block';
-                        this.textContent = 'Show Less';
-                    } else {
-                        galleryFull.style.display = 'none';
-                        this.textContent = 'Show More';
-                    }
-                });
-            })
-            .catch(error => console.error('Error fetching gallery data:', error));
-    });
 </script>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap');
-
-    :root {
-        --primary-color: #ff4d5a;
-        --secondary-color: #151718;
-        --accent-color: #00b894;
-        --dark-bg: #121212;
-        --darker-bg: #0a0a0a;
-        --light-text: #ffffff;
-        --gray-text: #888888;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        background-color: var(--dark-bg);
-        color: var(--light-text);
-        font-family: 'Raleway', sans-serif;
-        line-height: 1.6;
-    }
-
-    header {
-        background-color: rgba(10, 10, 10, 0.95);
-        padding: 1.5rem;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    nav ul {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        gap: 3rem;
-    }
-
-    nav a {
-        color: var(--light-text);
-        text-decoration: none;
-        font-size: 1.1rem;
-        font-weight: 600;
-        transition: all 0.3s;
-        position: relative;
-        padding: 0.5rem 0;
-    }
-
-    nav a::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-color);
-        transition: width 0.3s;
-    }
-
-    nav a:hover::after {
-        width: 100%;
-    }
-
-    .hero {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: url('https://raw.githubusercontent.com/bowiltse/BoWiltseWebsite/main/blue%20n%20brown.png') no-repeat center center/cover;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
-    }
-
-    .hero-content {
-        z-index: 1;
-    }
-
-    .hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at center, rgba(255,77,90,0.2) 0%, transparent 70%);
-    }
-
-    .hero h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 4.5rem;
-        margin-bottom: 1rem;
-        color: var(--light-text);
-        text-shadow: 0 0 10px rgba(255,77,90,0.5);
-    }
-
-    @keyframes titleFloat {
-        0%, 100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    .hero p {
-        font-size: 1.8rem;
-        color: var(--gray-text);
-        margin-bottom: 2rem;
-        font-weight: 300;
-    }
-
-    .cta-button {
-        display: inline-block;
-        background-color: var(--primary-color);
-        color: var(--light-text);
-        padding: 1.2rem 3rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s;
-        position: relative;
-        overflow: hidden;
-        border: 2px solid transparent;
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-
-    .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(255,77,90,0.3);
-        background-color: transparent;
-        border-color: var(--primary-color);
-    }
-
-    .services {
-        padding: 8rem 2rem;
-        background-color: var(--darker-bg);
-    }
-
-    .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 4rem;
-        font-family: 'Playfair Display', serif;
-        color: var(--light-text);
-    }
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-        gap: 3rem;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-
-    .service-card {
-        position: relative;
-        background: linear-gradient(145deg, #1a1a1a, #222);
-        padding: 1.5rem; /* Reduced padding */
-        border-radius: 20px;
-        text-align: center;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: transform 0.3s ease-in-out;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .service-card .video-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        opacity: 0;
-        transition: opacity 3s ease;
-    }
-
-    .service-card:hover .video-background {
-        opacity: 1;
-    }
-
-    .service-card .video-background video {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
-
-    .service-card h3 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-
-    .service-card p {
-        font-size: 1.2rem;
-        color: var(--gray-text);
-        margin-top: 1rem;
-    }
-
-    .card-image {
-        width: 300px;
-        max-width: 300px;
-        height: 350px;
-        border-radius: 30px;
-        margin: 1rem 0;
-        padding: 0 1%;
-    }
-
-    .gallery {
-        padding: 8rem 2rem;
-        background-color: var(--darker-bg);
-    }
-
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .gallery-preview {
-        display: flex;
-        overflow-x: auto;
-        gap: 1rem;
-        padding: 1rem 0;
-        margin-bottom: 2rem;
-    }
-
-    .gallery-preview img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .gallery-full {
-        display: none;
-        padding: 2rem 0;
-    }
-
-    .gallery-full .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1rem;
-    }
-
-    .gallery-full img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    footer {
-        background-color: var(--darker-bg);
-        padding: 4rem 2rem;
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .social-links {
-        margin-bottom: 2rem;
-    }
-
-    .social-links a {
-        color: var(--light-text);
-        font-size: 1.5rem;
-        margin: 0 1rem;
-        transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-        color: var(--primary-color);
-    }
-
-    @media (max-width: 768px) {
-        nav ul {
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-        }
-
-        .services-grid {
-            grid-template-columns: 1fr; /* Stack cards on mobile */
-        }
-    }
-</style>
+</body>
+</html>
