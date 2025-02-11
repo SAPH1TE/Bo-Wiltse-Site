@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bo Wiltse</title>
-    <link rel="icon" href="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/pfp.webp">
+    <link rel="icon" href="https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/470345621_957071916273551_8915771205857312997_n.png?raw=true">
     <style>
         :root { --primary-color: #ff4d5a; --secondary-color: #151718; --accent-color: #00b894; --dark-bg: #121212; --darker-bg: #0a0a0a; --light-text: #ffffff; --gray-text: #888888; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -48,7 +48,7 @@
         .social-links a { color: var(--light-text); font-size: 1.5rem; margin: 0 1rem; transition: color 0.3s; }
         .social-links a:hover { color: var(--primary-color); }
         @media (max-width: 768px) { nav ul { flex-direction: column; gap: 1rem; } .hero h1 { font-size: 3rem; } .hero p { font-size: 1.4rem; } .services-grid { grid-template-columns: 1fr; } .about-content { flex-direction: column; text-align: center; } .about-text { text-align: center; } }
-
+        #loading-section{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#121212;display:flex;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.5s ease;}.loading-spinner{border:4px solid rgba(255,255,255,0.3);border-top:4px solid #ff4d5a;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;}@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}body.loaded #loading-section{opacity:0;pointer-events:none;}
         /* New CSS for centering the button */
         .button-container {
             display: flex;
@@ -60,12 +60,14 @@
 </head>
 <body>
 <header><nav><ul><li><a href="#home">Home</a></li><li><a href="#about">About Me</a></li><li><a href="#services">Services</a></li></ul></nav></header>
+<div id="loading-section"> <div class="loading-spinner"></div> </div>
 <section class="hero" id="home"><div class="hero-content"><h1>Bo Wiltse</h1><p>Artist | Tattooist | Creator</p><a href="#services" class="cta-button">Explore My Work</a></div><div class="hero-overlay"></div></section>
 <section class="about" id="about"><h2 class="section-title">About Me</h2><div class="about-content"><div class="about-image"><img src="https://cdn.prod.website-files.com/62d84e447b4f9e7263d31e94/637627ca9eebde45ae5f394c_Underwater-Nun.jpeg" alt="Bo Wiltse Profile Picture"></div><div class="about-text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus posuere quam, non suscipit lacus congue id. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam iaculis scelerisque scelerisque. Duis convallis quam a ex tincidunt accumsan. Nullam quis finibus nulla. Ut vitae malesuada odio, quis semper magna. Donec in interdum felis. Fusce nec ultrices quam. Quisque a enim ut ligula viverra varius.</p></div></div></section>
 <section class="services" id="services"><h2 class="section-title">Services</h2><div class="services-grid"><div class="service-card"><div class="video-background"><video autoplay muted loop><source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Skulltattoo.mp4" type="video/mp4">Your browser does not support the video tag.</video></div><h3>Tattoos</h3><img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/R2D2.webp" alt="Tattoos" class="card-image"></div><div class="service-card"><div class="video-background"><video autoplay muted loop><source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/heart.mp4" type="video/mp4">Your browser does not support the video tag.</video></div><h3>Illustration</h3><img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/cheezymac.webp" alt="Illustrations" class="card-image"></div><div class="service-card"><div class="video-background"><video autoplay muted loop><source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Mural.mp4" type="video/mp4">Your browser does not support the video tag.</video></div><h3>Murals</h3><img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/wall.webp" alt="Murals" class="card-image"></div></div><div class="button-container"><a href="https://www.instagram.com/bowiltse/?hl=en" class="cta-button">View all Media</a></div></section>
 <section class="about" id="contact"><h2 class="section-title">Contact</h2><div class="about-content"><div class="about-text"><p>The main way I would receive contact is via email over at bowiltse@gmail.com. Please feel free to contact me with any questions and or appointment scheduling and then furthermore it will be handled. To see more my social media links are below:</p></div></div></section>
 <footer><div class="social-links"><a href="https://www.instagram.com/bowiltse/?hl=en">Instagram</a><a href="https://github.com/SAPH1TE/Bo-Wiltse-Site">Source</a><a href="https://www.tiktok.com/@borillatron">TikTok</a><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">OnlyFans</a><a href="https://wastedtalent.storenvy.com/">Merch</a></div></footer>
 <script>(function(){const konamiCode=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let codePosition=0;document.addEventListener('keydown',function(e){if(e.key===konamiCode[codePosition]){codePosition++;if(codePosition===konamiCode.length){window.location.href='https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/vexation.png?raw=true';codePosition=0;}}else{codePosition=0;}});})();</script>
-<script> (()=>{let d=document,b=d.createElement("div");b.textContent="Please note this website is in development";Object.assign(b.style,{position:"fixed",bottom:"25px",right:"25px",background:"black",color:"white",padding:"8px",borderRadius:"15px",fontSize:"25px",zIndex:9999});d.body.appendChild(b);setTimeout(()=>b.remove(),2500);})();</script>
+<script> (()=>{let d=document,b=d.createElement("div");b.textContent="Please note this website is in development";Object.assign(b.style,{position:"fixed",bottom:"25px",right:"25px",background:"black",color:"white",padding:"8px",borderRadius:"15px",fontSize:"25px",zIndex:9999});d.body.appendChild(b);setTimeout(()=>b.remove(),2500);})();</script>9
+<script>window.addEventListener('load',function(){document.body.classList.add('loaded');setTimeout(function(){document.getElementById('loading-section').remove();},500);});</script>
 </body>
 </html>
