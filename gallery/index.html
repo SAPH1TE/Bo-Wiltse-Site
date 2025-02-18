@@ -1,115 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bo Wiltse - Gallery</title>
-    <link rel="icon" href="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/pfp.webp">
-    <style>
-        :root { --primary-color: #ff4d5a; --secondary-color: #151718; --accent-color: #00b894; --dark-bg: #121212; --darker-bg: #0a0a0a; --light-text: #ffffff; --gray-text: #888888; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--dark-bg); color: var(--light-text); font-family: 'Raleway', sans-serif; line-height: 1.6; }
-        header { background-color: rgba(10, 10, 10, 0.95); padding: 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        nav ul { display: flex; justify-content: center; list-style: none; gap: 3rem; }
-        nav a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
-        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
-        nav a:hover::after { width: 100%; }
-        .gallery-container { padding: 75px 2rem 1px; max-width: 1400px; margin: 0 auto; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem 0; }
-        .gallery-item { position: relative; border-radius: 20px; overflow: hidden; transition: transform 0.3s ease; aspect-ratio: 1; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: fill; transition: transform 0.5s ease; filter: brightness(0.9); }
-        .gallery-item:hover img { transform: scale(1.1); filter: brightness(1); }
-        .gallery-caption { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; opacity: 0; transition: opacity 0.3s ease; }
-        .gallery-item:hover .gallery-caption { opacity: 1; }
-        .back-button { display: inline-block; margin-bottom: 2rem; color: var(--primary-color); text-decoration: none; font-weight: 600; transition: opacity 0.3s ease; }
-        .back-button:hover { opacity: 0.8; }
-        @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr; } nav ul { flex-direction: column; gap: 1rem; } }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; margin-bottom: 1rem; color: var(--light-text); text-shadow: 0 0 10px rgba(255,77,90,0.5); animation: glow 2s infinite alternate; }
-        @keyframes glow { 0% { text-shadow: 0 0 10px rgba(255,77,90,0.5); } 100% { text-shadow: 0 0 20px rgba(255,77,90,0.8); } }
-        .hero p { font-size: 1.8rem; color: var(--gray-text); margin-bottom: 2rem; font-weight: 300; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 4rem; font-family: 'Playfair Display', serif; color: var(--light-text); position: relative; }
-        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background: var(--primary-color); }
-        .about-image img { width: 100%; border-radius: 30px; transition: transform 0.5s; }
-        .about-image:hover img { transform: scale(1.1); }
-        .about-text p { font-size: 1rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 2rem; }
-        .service-card .video-background video { object-fit: cover; width: 100%; height: 100%; }
-        .service-card h3 { font-size: 1.8rem; margin-bottom: 1rem; position: relative; z-index: 2; color: var(--light-text); text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
-        footer { background-color: var(--darker-bg); padding: 4rem 2rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-        .social-links a { color: var(--light-text); font-size: 1.5rem; margin: 0 1rem; transition: color 0.3s; }
-        .social-links a:hover { color: var(--primary-color); }
-        @media (max-width: 768px) { nav ul { flex-direction: column; gap: 1rem; } .hero h1 { font-size: 3rem; } .hero p { font-size: 1.4rem; } }
-    </style>
-</head>
-<body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="https://bowiltse.com">Home</a></li>
-            <li><a href="https://bowiltse.com#about">About</a></li>
-            <li><a href="https://bowiltse.com#services">Services</a></li>
-            <li><a href="https://bowiltse.com/gallery/">Gallery</a></li>
-        </ul>
-    </nav>
-</header>
-<div class="gallery-container">
-    <a href="https://bowiltse.com" class="back-button">&larr; Back to Home</a>
-    <h2 class="section-title">Gallery</h2>
-    <div class="gallery-grid">
-    </div>
-</div>
-</body>
-</html>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let isLoading = false;
-        let page = 0;
-        const itemsPerPage = 3;
-        const galleryGrid = document.querySelector('.gallery-grid');
-        const loadingIndicator = document.createElement('div');
-        loadingIndicator.style.textAlign = 'center';
-        loadingIndicator.style.padding = '20px';
-        loadingIndicator.style.color = '#888';
-        async function loadMoreItems() {
-            if (isLoading) return;
-            isLoading = true;
-            galleryGrid.parentNode.insertBefore(loadingIndicator, galleryGrid.nextSibling);
-            loadingIndicator.textContent = 'Loading Media...';
-            try {
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                const newItems = Array.from({ length: itemsPerPage }, (_, i) => {
-                    const itemNumber = page * itemsPerPage + i + 1;
-                    return {
-                        url: `https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Images/${itemNumber}.webp`,
-                        alt: `Artwork ${itemNumber}`,
-                        caption: `Image ${itemNumber}`
-                    };
-                });
-                const html = newItems.map(item => `
-                    <div class="gallery-item">
-                        <img src="${item.url}" alt="${item.alt}" loading="lazy">
-                        <div class="gallery-caption">${item.caption}</div>
-                    </div>
-                `).join('');
-                galleryGrid.insertAdjacentHTML('beforeend', html);
-                page++;
-                galleryGrid.parentNode.appendChild(sentinel);
-            } catch (error) {
-                console.error('Error loading items:', error);
-            } finally {
-                isLoading = false;
-                loadingIndicator.remove();
-            }
-        }
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting && !isLoading) {
-                loadMoreItems();
-            }
-        }, { threshold: 1.0 });
-        const sentinel = document.createElement('div');
-        sentinel.style.height = '20px';
-        galleryGrid.parentNode.appendChild(sentinel);
-        observer.observe(sentinel);
-    });
-</script>
+<style>
+    :root { --primary-color: #ff4d5a; --secondary-color: #151718; --accent-color: #00b894; --dark-bg: #121212; --darker-bg: #0a0a0a; --light-text: #ffffff; --gray-text: #888888; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: var(--dark-bg); color: var(--light-text); font-family: 'Raleway', sans-serif; line-height: 1.6; }
+    header { background-color: rgba(10, 10, 10, 0.95); padding: 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    nav ul { display: flex; justify-content: center; list-style: none; gap: 3rem; }
+    nav a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
+    nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
+    nav a:hover::after { width: 100%; }
+    .gallery-container { padding: 75px 2rem 1px; max-width: 1400px; margin: 0 auto; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; padding: 2rem 0; }
+    .gallery-item { position: relative; border-radius: 20px; overflow: hidden; transition: transform 0.3s ease; aspect-ratio: 1; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: fill; transition: transform 0.5s ease; filter: brightness(0.9); }
+    .gallery-item:hover img { transform: scale(1.1); filter: brightness(1); }
+    .gallery-caption { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; opacity: 0; transition: opacity 0.3s ease; }
+    .gallery-item:hover .gallery-caption { opacity: 1; }
+    .back-button { display: inline-block; margin-bottom: 2rem; color: var(--primary-color); text-decoration: none; font-weight: 600; transition: opacity 0.3s ease; }
+    .back-button:hover { opacity: 0.8; }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: 1fr; } nav ul { flex-direction: column; gap: 1rem; } }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; margin-bottom: 1rem; color: var(--light-text); text-shadow: 0 0 10px rgba(255,77,90,0.5); animation: glow 2s infinite alternate; }
+    @keyframes glow { 0% { text-shadow: 0 0 10px rgba(255,77,90,0.5); } 100% { text-shadow: 0 0 20px rgba(255,77,90,0.8); } }
+    .hero p { font-size: 1.8rem; color: var(--gray-text); margin-bottom: 2rem; font-weight: 300; }
+    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 4rem; font-family: 'Playfair Display', serif; color: var(--light-text); position: relative; }
+    .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background: var(--primary-color); }
+    .about-image img { width: 100%; border-radius: 30px; transition: transform 0.5s; }
+    .about-image:hover img { transform: scale(1.1); }
+    .about-text p { font-size: 1rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 2rem; }
+    .service-card .video-background video { object-fit: cover; width: 100%; height: 100%; }
+    .service-card h3 { font-size: 1.8rem; margin-bottom: 1rem; position: relative; z-index: 2; color: var(--light-text); text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+    footer { background-color: var(--darker-bg); padding: 4rem 2rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    .social-links a { color: var(--light-text); font-size: 1.5rem; margin: 0 1rem; transition: color 0.3s; }
+    .social-links a:hover { color: var(--primary-color); }
+    @media (max-width: 768px) { nav ul { flex-direction: column; gap: 1rem; } .hero h1 { font-size: 3rem; } .hero p { font-size: 1.4rem; } }
+</style>
+<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Bo Wiltse - Gallery</title> <link rel="icon" href="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/pfp.webp"></head>
+<body><header> <nav> <ul> <li><a href="https://bowiltse.com">Home</a></li> <li><a href="https://bowiltse.com#about">About</a></li> <li><a href="https://bowiltse.com#services">Services</a></li> <li><a href="https://bowiltse.com/gallery/">Gallery</a></li> </ul> </nav></header>
+<div class="gallery-container"> <a href="https://bowiltse.com" class="back-button">&larr; Back to Home</a> <h2 class="section-title">Gallery</h2> <div class="gallery-grid"> </div></div></body> </html>
+<script>document.addEventListener('DOMContentLoaded', function() {        let isLoading = false;        let page = 0;        const itemsPerPage = 3;        const galleryGrid = document.querySelector('.gallery-grid');        const loadingIndicator = document.createElement('div');        loadingIndicator.style.textAlign = 'center';        loadingIndicator.style.padding = '20px';        loadingIndicator.style.color = '#888';        async function loadMoreItems() {            if (isLoading) return;            isLoading = true;            galleryGrid.parentNode.insertBefore(loadingIndicator, galleryGrid.nextSibling);            loadingIndicator.textContent = 'Loading Media...';            try {                await new Promise(resolve => setTimeout(resolve, 1000));                const newItems = Array.from({ length: itemsPerPage }, (_, i) => {                    const itemNumber = page * itemsPerPage + i + 1;                    return {                        url: `https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Images/${itemNumber}.webp`,                        alt: `Artwork ${itemNumber}`,                        caption: `Image ${itemNumber}`                    };                });                const html = newItems.map(item => `                    <div class="gallery-item">                        <img src="${item.url}" alt="${item.alt}" loading="lazy">                        <div class="gallery-caption">${item.caption}</div>                    </div>                `).join('');                galleryGrid.insertAdjacentHTML('beforeend', html);                page++;                galleryGrid.parentNode.appendChild(sentinel);            } catch (error) {                console.error('Error loading items:', error);            } finally {                isLoading = false;                loadingIndicator.remove();            }        }        const observer = new IntersectionObserver((entries) => {            if (entries[0].isIntersecting && !isLoading) {                loadMoreItems();            }        }, { threshold: 1.0 });        const sentinel = document.createElement('div');        sentinel.style.height = '20px';        galleryGrid.parentNode.appendChild(sentinel);        observer.observe(sentinel);    });</script>
 <script>(function(){const konamiCode=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let codePosition=0;document.addEventListener('keydown',function(e){if(e.key===konamiCode[codePosition]){codePosition++;if(codePosition===konamiCode.length){window.location.href='https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/vexation.png?raw=true';codePosition=0;}}else{codePosition=0;}});})();</script>
 <script> (()=>{let d=document,b=d.createElement("div");b.textContent="Please note this website is in even deeper development for more media refer to the instagram in the footer at the home page";Object.assign(b.style,{position:"fixed",bottom:"25px",right:"25px",background:"black",color:"white",padding:"8px",borderRadius:"15px",fontSize:"25px",zIndex:9999});d.body.appendChild(b);setTimeout(()=>b.remove(),2500);})();</script>
