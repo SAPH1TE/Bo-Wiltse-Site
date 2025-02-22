@@ -1,0 +1,33 @@
+    <!DOCTYPE html>
+    <style>
+        :root { --primary-color: #ff4d5a; --secondary-color: #151718; --accent-color: #00b894; --dark-bg: #0d0d0d; --darker-bg: #0a0a0a; --light-text: #ffffff; --gray-text: #888888; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Raleway', sans-serif; }
+        body { background-color: var(--dark-bg); color: var(--light-text); }
+        header { background-color: rgba(0, 0, 0, 0.9); padding: 1rem; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 3rem; }
+        nav a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; transition: color 0.3s; text-transform: uppercase; font-weight: 500; }
+        nav a:hover { color: var(--primary-color); }
+        .gallery-container { padding: 100px 2rem 2rem; max-width: 1400px; margin: 0 auto; }
+        .gallery-title { text-align: center; font-size: 4rem; margin: 2rem 0; font-family: 'Playfair Display', serif; position: relative; text-transform: uppercase; }
+        .gallery-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--primary-color); margin: 1rem auto; }
+        .gallery-grid { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        .gallery-item { width: 300px; height: 400px; border-radius: 15px; overflow: hidden; transition: transform 0.3s; position: relative; will-change: transform; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery-item:hover { transform: scale(1.05); }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-caption { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1.5rem; background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); color: white; opacity: 0; transition: opacity 0.3s; }
+        .gallery-item:hover .gallery-caption { opacity: 1; }
+        .back-button { display: inline-block; margin: 2rem 0; color: var(--primary-color); text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
+        .back-button:hover { opacity: 0.8; }
+        #loading-section{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#121212;display:flex;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.5s ease;}.loading-spinner{border:4px solid rgba(255,255,255,0.3);border-top:4px solid #ff4d5a;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;}@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}body.loaded #loading-section{opacity:0;pointer-events:none;}
+        @media (max-width: 768px) { .gallery-item { width: 100%; height: 300px; } nav ul { gap: 1.5rem; } .gallery-title { font-size: 2.5rem; } }
+    </style>
+    <html lang="en">
+    <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Bo Wiltse - Gallery</title> <link rel="icon" href="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/pfp.webp"></head>
+    <div id="loading-section"> <div class="loading-spinner"></div> </div>
+    <body><header> <nav> <ul> <li><a href="https://bowiltse.com">Home</a></li> <li><a href="https://bowiltse.com#about">About</a></li> <li><a href="https://bowiltse.com#services">Services</a></li> <li><a href="https://bowiltse.com/gallery/">Gallery</a></li> </ul> </nav></header>
+    <div class="gallery-container"> <a href="https://bowiltse.com" class="back-button">&larr; Back to Home</a> <h1 class="gallery-title">Gallery</h1> <div class="gallery-grid"></div></div>
+    <script>document.addEventListener('DOMContentLoaded', function () { let isLoading = false; let page = 0; const itemsPerPage = 3; const galleryGrid = document.querySelector('.gallery-grid'); const loadingIndicator = document.createElement('div'); loadingIndicator.style.textAlign = 'center'; loadingIndicator.style.padding = '20px'; loadingIndicator.style.color = '#888'; async function loadMoreItems() { if (isLoading) return; isLoading = true; galleryGrid.parentNode.insertBefore(loadingIndicator, galleryGrid.nextSibling); loadingIndicator.textContent = 'Loading Media...'; try { await new Promise(resolve => setTimeout(resolve, 1000)); const newItems = Array.from({ length: itemsPerPage }, (_, i) => { const itemNumber = page * itemsPerPage + i + 1; return { url: `https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/art_digital/${itemNumber}.webp`, alt: `Artwork ${itemNumber}`, caption: `Image ${itemNumber}` }; }); const fragment = document.createDocumentFragment(); newItems.forEach(item => { const div = document.createElement('div'); div.className = 'gallery-item'; div.innerHTML = ` <img src="${item.url}" alt="${item.alt}" loading="lazy"> <div class="gallery-caption">${item.caption}</div> `; fragment.appendChild(div); }); galleryGrid.appendChild(fragment); page++; } catch (error) { console.error('Error loading items:', error); } finally { isLoading = false; loadingIndicator.remove(); } } const observer = new IntersectionObserver((entries) => { if (entries[0].isIntersecting && !isLoading) { loadMoreItems(); } }, { threshold: 1.0 }); const sentinel = document.createElement('div'); sentinel.style.height = '20px'; galleryGrid.parentNode.appendChild(sentinel); observer.observe(sentinel);});</script>
+    <script>(function(){const konamiCode=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let codePosition=0;document.addEventListener('keydown',function(e){if(e.key===konamiCode[codePosition]){codePosition++;if(codePosition===konamiCode.length){window.location.href='https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/vexation.png?raw=true';codePosition=0;}}else{codePosition=0;}});})();</script>
+    <script>window.addEventListener('load',function(){document.body.classList.add('loaded');setTimeout(function(){document.getElementById('loading-section').remove();},500);});</script>
+    <script> (()=>{let d=document,b=d.createElement("div");b.textContent="Please note this website is in development";Object.assign(b.style,{position:"fixed",bottom:"25px",right:"25px",background:"black",color:"white",padding:"8px",borderRadius:"15px",fontSize:"25px",zIndex:9999});d.body.appendChild(b);setTimeout(()=>b.remove(),2500);})();</script></body></html>
