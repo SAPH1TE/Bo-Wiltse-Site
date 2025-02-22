@@ -7,10 +7,10 @@
         <title>Bo Wiltse</title>
         <link rel="icon" href="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/ect/1.webp">
         <style>
-            :root { --primary-color: #ff4d5a; --secondary-color: #151718; --accent-color: #00b894; --dark-bg: #121212; --darker-bg: #0a0a0a; --light-text: #ffffff; --gray-text: #888888; }
+            :root { --primary-color: #ff4d5a; --secondary-color: #000000; --accent-color: #00b894; --dark-bg: #000000; --darker-bg: #0a0a0a; --light-text: #ffffff; --gray-text: #888888; }
             * { margin: 0; padding: 0; box-sizing: border-box; }
             body { background-color: var(--dark-bg); color: var(--light-text); font-family: 'Raleway', sans-serif; line-height: 1.6; }
-            header { background-color: rgba(10, 10, 10, 0.95); padding: 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            header { background-color: rgba(10, 10, 10, 0.95); padding: 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0); }
             nav ul { display: flex; justify-content: center; list-style: none; gap: 3rem; }
             nav a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
             nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
@@ -34,13 +34,13 @@
             .about-text { flex: 2; text-align: left; }
             .about-text p { font-size: 1rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 2rem; }
             .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-            .service-card { position: relative; background: linear-gradient(145deg, #1a1a1a, #222); padding: 1.5rem; border-radius: 20px; text-align: center; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-            .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+            .service-card { position: relative; background: linear-gradient(145deg, #111111, #130101); padding: 1.5rem; border-radius: 20px; text-align: center; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+            .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.76); }
             .service-card .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0; transition: opacity 0.5s ease; }
             .service-card:hover .video-background { opacity: 1; }
             .service-card .video-background video { object-fit: cover; width: 100%; height: 100%; }
-            .service-card h3 { font-size: 1.8rem; margin-bottom: 1rem; position: relative; z-index: 2; color: var(--light-text); text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); text-decoration: none !important;}
-            .card-image { width: 400px; max-width: 400px; height: auto; border-radius: 30px; margin: 1rem 0; padding: 0 1%; transition: transform 0.5s, filter 0.5s; filter: brightness(0.8); }
+            .service-card h3 { font-size: 1.8rem; margin-bottom: 1rem; position: relative; z-index: 2; color: var(--light-text); text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+            .card-image { width: 400px; max-width: 400px; height: auto; border-radius: 35px; margin: 1rem 0; padding: 0 1%; transition: transform 0.5s, filter 0.5s; filter: brightness(0.8); }
             .card-image:hover { transform: scale(1.05); filter: brightness(1); }
             .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255, 77, 90, 0.2), transparent); opacity: 0; transition: opacity 0.5s; }
             .service-card:hover::before { opacity: 1; }
