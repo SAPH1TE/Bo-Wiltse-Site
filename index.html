@@ -1,68 +1,150 @@
-    <!DOCTYPE html>
-    <html lang="en" xmlns="http://www.w3.org/1999/html">
-    <head>
-        <meta name="description" content="-Bo Wiltse Las Vegas based Artist graffiti, murals, tattoos ect- Born, raised, and based in Las Vegas since 1979, Bo Wiltse has been immersed in the world of art for as long as he can remember. He started his journey as a graffiti artist in 1993, later expanding his craft to tattooing in 2004....." />
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Bo Wiltse</title>
-        <link rel="icon" href="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/ect/1.webp">
-        <style>
-            :root { --primary-color: #ff4d5a; --secondary-color: #000000; --accent-color: #00b894; --dark-bg: #000000; --darker-bg: #0a0a0a; --light-text: #ffffff; --gray-text: #888888; }
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            body { background-color: var(--dark-bg); color: var(--light-text); font-family: 'Raleway', sans-serif; line-height: 1.6; }
-            header { background-color: rgba(10, 10, 10, 0.95); padding: 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0); }
-            nav ul { display: flex; justify-content: center; list-style: none; gap: 3rem; }
-            nav a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
-            nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
-            nav a:hover::after { width: 100%; }
-            .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background: url('https://raw.githubusercontent.com/bowiltse/BoWiltseWebsite/main/blue%20n%20brown.png') no-repeat center center/cover; position: relative; overflow: hidden; }
-            .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)); }
-            .hero-content { z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-            .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; margin-bottom: 1rem; color: var(--light-text); text-shadow: 0 0 10px rgba(255,77,90,0.5); animation: glow 2s infinite alternate; }
-            @keyframes glow { 0% { text-shadow: 0 0 10px rgba(255,77,90,0.5); } 100% { text-shadow: 0 0 20px rgba(255,77,90,0.8); } }
-            .hero p { font-size: 1.8rem; color: var(--gray-text); margin-bottom: 2rem; font-weight: 300; }
-            .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--light-text); padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s; position: relative; overflow: hidden; border: 2px solid transparent; box-shadow: 0 0 10px rgba(255, 77, 90, 0.5); margin: 0 auto; }
-            .cta-button::before { content: ''; position: absolute; top: 50%; left: 50%; width: 300%; height: 300%; background: rgba(255, 255, 255, 0.3); transform: translate(-50%, -50%) rotate(45deg); transition: all 0.5s; opacity: 0; }
-            .cta-button:hover::before { opacity: 1; width: 100%; height: 100%; }
-            .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,77,90,0.3); background-color: transparent; border-color: var(--primary-color); }
-            .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 4rem; font-family: 'Playfair Display', serif; color: var(--light-text); position: relative; }
-            .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background: var(--primary-color); }
-            .about-content { display: flex; align-items: center; gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-            .about-image { flex: 1; max-width: 350px; position: relative; overflow: hidden; border-radius: 20px; }
-            .about-image img { width: 100%; border-radius: 30px; transition: transform 0.5s; }
-            .about-image:hover img { transform: scale(1.1); }
-            .about-text { flex: 2; text-align: left; }
-            .about-text p { font-size: 1rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 2rem; }
-            .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-            .service-card { position: relative; background: linear-gradient(145deg, #111111, #130101); padding: 1.5rem; border-radius: 20px; text-align: center; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-            .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.76); }
-            .service-card .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0; transition: opacity 0.5s ease; }
-            .service-card:hover .video-background { opacity: 1; }
-            .service-card .video-background video { object-fit: cover; width: 100%; height: 100%; }
-            .service-card h3 { font-size: 1.8rem; margin-bottom: 1rem; position: relative; z-index: 2; color: var(--light-text); text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
-            .card-image { width: 400px; max-width: 400px; height: auto; border-radius: 35px; margin: 1rem 0; padding: 0 1%; transition: transform 0.5s, filter 0.5s; filter: brightness(0.8); }
-            .card-image:hover { transform: scale(1.05); filter: brightness(1); }
-            .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255, 77, 90, 0.2), transparent); opacity: 0; transition: opacity 0.5s; }
-            .service-card:hover::before { opacity: 1; }
-            footer { background-color: var(--darker-bg); padding: 4rem 2rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-            .social-links { margin-bottom: 2rem; }
-            .social-links a { color: var(--light-text); font-size: 1.5rem; margin: 0 1rem; transition: color 0.3s; }
-            .social-links a:hover { color: var(--primary-color); }
-            @media (max-width: 768px) { nav ul { flex-direction: column; gap: 1rem; } .hero h1 { font-size: 3rem; } .hero p { font-size: 1.4rem; } .services-grid { grid-template-columns: 1fr; } .about-content { flex-direction: column; text-align: center; } .about-text { text-align: center; } }
-            #loading-section{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#121212;display:flex;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.5s ease;}.loading-spinner{border:4px solid rgba(255,255,255,0.3);border-top:4px solid #ff4d5a;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;}@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}body.loaded #loading-section{opacity:0;pointer-events:none;}
-            .button-container { margin-top: 2rem; display: flex; justify-content: center; align-items: center; }
-        </style>
-    </head>
-    <body>
-    <header><nav><ul><li><a href="#home">Home</a></li><li><a href="#about">About Me</a></li><li><a href="#services">Services</a></li></ul></nav></header>
-    <div id="loading-section"> <div class="loading-spinner"></div> </div>
-    <section class="hero" id="home"><div class="hero-content"><h1>Bo Wiltse</h1><p>Artist | Tattooist | Creator</p><a href="#services" class="cta-button">Explore Work</a></div><div class="hero-overlay"></div></section>
-    <section class="about" id="about"><h2 class="section-title">About Bo</h2><div class="about-content"><div class="about-image"><img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/ect/0.webp" alt="Bo Wiltse Profile Picture"></div><div class="about-text"><p>Born, raised, and based in Las Vegas since 1979, Bo Wiltse has been immersed in the world of art for as long as he can remember. He started his journey as a graffiti artist in 1993, later expanding his craft to tattooing in 2004. With a lifelong passion for creativity, Bo works across multiple mediums, including spray paint, brushes, airbrush, digital illustration, 3D modeling, and sculpting.<br><br>Beyond art, Bo is a proud single father of five amazing children, who are his greatest inspiration. His youngest son, at just 12 years old, even built this website—proof that creativity runs in the family. Art is also a family affair, as Bo works alongside his two talented sisters, who share his passion for tattooing and creativity.(Source code in footer!)<br><br>Over the years, Bo has had the honor of working with numerous well-known clients, including professional athletes and other public figures. His work has also been featured at several major events in his hometown of Las Vegas, further cementing his reputation as a versatile and innovative artist.<br><br>Bo’s artistic journey has been shaped by the support and mentorship of several close friends who guided him along the way. Their influence, along with his sisters, continues to inspire his work, pushing him to create original and meaningful pieces for his clients.<br><br>If you’re looking for an artist who can bring your vision to life in a truly one-of-a-kind way, Bo Wiltse is the creator for you.</p></div></div></section>
-    <section class="services" id="services"> <h2 class="section-title">Services</h2> <div class="services-grid"> <a href="https://bowiltse.com/tattoos" class="service-card"> <div class="video-background"> <video autoplay muted loop> <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Skulltattoo.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div> <h3>Tattoos</h3> <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/art_tattoos/0.webp" alt="Tattoos" class="card-image"> </a> <a href="https://bowiltse.com/digital" class="service-card"> <div class="video-background"> <video autoplay muted loop> <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/heart.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div> <h3>Illustration</h3> <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_digital/1.webp" alt="Illustrations" class="card-image"> </a> <a href="https://bowiltse.com/paintings" class="service-card"> <div class="video-background"> <video autoplay muted loop> <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Mural.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div> <h3>Murals</h3> <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_paintings/85.webp" alt="Murals" class="card-image"> </a> </div> <div class="button-container"> </div></section>
-    <section class="about" id="contact"><h2 class="section-title">Contact</h2><div class="about-content"><div class="about-text"><p>The main way I would receive contact is via email over at bowiltse@gmail.com. Please feel free to contact me with any questions and or appointment scheduling and then furthermore it will be handled. To see more my social media links are below:</p></div></div></section>
-    <footer><div class="social-links">  <a href="https://www.instagram.com/bowiltse/?hl=en">Instagram</a><a href="https://github.com/SAPH1TE/Bo-Wiltse-Site">Source</a><a href="https://www.tiktok.com/@borillatron">TikTok</a><a href="https://wastedtalent.storenvy.com/">Merch</a></div></footer>
-    <script>(function(){const konamiCode=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let codePosition=0;document.addEventListener('keydown',function(e){if(e.key===konamiCode[codePosition]){codePosition++;if(codePosition===konamiCode.length){window.location.href='https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/ect/2.webp';codePosition=0;}}else{codePosition=0;}});})();</script>
-    <script> (()=>{let d=document,b=d.createElement("div");b.textContent="Please note this website is in development";Object.assign(b.style,{position:"fixed",bottom:"25px",right:"25px",background:"black",color:"white",padding:"8px",borderRadius:"15px",fontSize:"25px",zIndex:9999});d.body.appendChild(b);setTimeout(()=>b.remove(),2500);})();</script>
-    <script>window.addEventListener('load',function(){document.body.classList.add('loaded');setTimeout(function(){document.getElementById('loading-section').remove();},500);});</script>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="-Bo Wiltse Las Vegas based Artist graffiti, murals, tattoos etc- Born, raised, and based in Las Vegas since 1979..." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bo Wiltse</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/1.webp">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #d9d2d2;
+            --accent-color: #0056b3;
+            --dark-bg: #e6e6e6;
+            --darker-bg: #dadada;
+            --light-text: #000000;
+            --gray-text: #181818;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; }
+
+        body { background-color: var(--dark-bg); color: var(--light-text); font-family: 'Raleway', sans-serif; line-height: 1.6; }
+
+        header { background-color: rgba(255, 255, 255, 0.5); padding: 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
+        nav ul { display: flex; justify-content: center; list-style: none; gap: 3rem; }
+        nav a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
+        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
+        nav a:hover::after { width: 100%; }
+
+        .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background: url('https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/art_digital/5.webp') no-repeat center center/cover; position: relative; overflow: hidden; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+        .hero-content { z-index: 1; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; margin-bottom: 1rem; color: var(--light-text); text-shadow: 0 0 10px rgba(0,123,255,0.3); animation: glow 2s infinite alternate; }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(0,123,255,0.3); }
+            100% { text-shadow: 0 0 20px rgba(0,123,255,0.5); }
+        }
+
+        .hero p { font-size: 1.8rem; color: var(--gray-text); margin-bottom: 2rem; }
+        .section-title { text-align: center; font-size: 3rem; margin-bottom: 4rem; font-family: 'Playfair Display', serif; position: relative; }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background: var(--primary-color); }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 350px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 250px;
+            box-shadow: 0 15px 15px rgba(0, 0, 0, 0.71);
+            border: 3px solid rgba(0, 123, 255, 0.52);
+        }
+
+        .about-image img {
+            transform: scale(1.1);
+            width: 100%;
+            border-radius: 30px;
+            transition: transform 0.5s, filter 0.3s;
+            filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+        }
+
+        .about-image:hover img {
+            transform: scale(1.2);
+            filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.5));
+        }
+        .about-text { flex: 2; }
+        .about-text p { font-size: 1.1rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 2rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .service-card { text-decoration: none; position: relative; background: linear-gradient(145deg, #f8f9fa, #e9ecef); padding: 1.5rem; border-radius: 20px; text-align: center; overflow: hidden; border: 1px solid rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .service-card .video-background { position: absolute; filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.3)); top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0; transition: opacity 0.5s ease; }
+        .service-card:hover .video-background { opacity: 1; }
+        .service-card:hover h3 { opacity: 0; }
+        .service-card .video-background video { object-fit: cover; width: 100%; height: 100%; }
+        .service-card h3 { font-size: 1.8rem; margin-bottom: 1rem; position: relative; z-index: 2; }
+        .card-image {
+            width: 400px;                  /* Set a fixed width */
+            height: 400px;                 /* Set a fixed height to match the width */
+            max-width: 400px;              /* Ensure the max width remains the same */
+            max-height: 400px;             /* Ensure the max height is also the same */
+            border-radius: 35px;           /* Keep the border-radius for rounded corners */
+            margin: 1rem 0;                /* Margin for spacing */
+            padding: 0 1%;                 /* Padding around the image */
+            transition: transform 0.5s;    /* Transition effect on hover */
+            object-fit: cover;             /* Ensure the image covers the square container, cropping or stretching as needed */
+        }
+
+        .card-image:hover {
+            transform: scale(1.05);        /* Slight scale on hover */
+        }
+
+        footer { background-color: var(--darker-bg); padding: 1.2rem 2rem; text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); }
+        .social-links { margin-bottom: 2rem; }
+        .social-links a {text-decoration: none; color: var(--primary-color); font-size: 2rem; margin: 0 1rem; transition: color 0.3s; }
+        .social-links a:hover { color: var(--accent-color); }
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; gap: 1rem; }
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.4rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .about-content { flex-direction: column; }
+        }
+        #loading-section{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#ffffff;display:flex;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.5s ease;}
+        .loading-spinner{border:4px solid rgba(0,0,0,0.1);border-top:4px solid var(--primary-color);border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;}
+    </style>
+</head>
+<body>
+<header><nav><ul><li><a href="#home">Home</a></li><li><a href="#about">About Me</a></li><li><a href="#services">Services</a></li></ul></nav></header>
+<div id="loading-section"> <div class="loading-spinner"></div> </div>
+<section class="hero" id="home"><div class="hero-content"></div><div class="hero-overlay"></div></section>
+<section class="about" id="about"><h2 class="section-title">About Bo</h2><div class="about-content"><div class="about-image"><img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/0.webp" alt="Bo Wiltse Profile Picture"></div><div class="about-text"><p>Born, raised, and based in Las Vegas since 1979, Bo Wiltse has been immersed in the world of art for as long as he can remember. He started his journey as a graffiti artist in 1993, later expanding his craft to tattooing in 2004. With a lifelong passion for creativity, Bo works across multiple mediums, including spray paint, brushes, airbrush, digital illustration, 3D modeling, and sculpting.<br><br>Beyond art, Bo is a proud single father of five amazing children, who are his greatest inspiration. His youngest son, at just 12 years old, even built this website—proof that creativity runs in the family. Art is also a family affair, as Bo works alongside his two talented sisters, who share his passion for tattooing and creativity.(Source code in footer!)<br><br>Over the years, Bo has had the honor of working with numerous well-known clients, including professional athletes and other public figures. His work has also been featured at several major events in his hometown of Las Vegas, further cementing his reputation as a versatile and innovative artist.<br><br>Bo’s artistic journey has been shaped by the support and mentorship of several close friends who guided him along the way. Their influence, along with his sisters, continues to inspire his work, pushing him to create original and meaningful pieces for his clients.<br><br>If you’re looking for an artist who can bring your vision to life in a truly one-of-a-kind way, Bo Wiltse is the creator for you.</p></div></div></section>
+<section class="services" id="services"> <h2 class="section-title">Services</h2> <div class="services-grid"> <a href="https://bowiltse.com/paintings" class="service-card"> <div class="video-background"> <video autoplay muted loop> <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Skulltattoo.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div> <h3>tattoos</h3> <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/ect/TEMPFIX.webp" alt="Murals" class="card-image"> </a> <a href="https://bowiltse.com/tattoos" class="service-card"> <div class="video-background"> <video autoplay muted loop> <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/heart.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div> <h3>Illustration</h3> <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_digital/1.webp" alt="Illustrations" class="card-image"> </a> <a href="https://bowiltse.com/paintings" class="service-card"> <div class="video-background"> <video autoplay muted loop> <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Mural.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div> <h3>Murals</h3> <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_paintings/85.webp" alt="Murals" class="card-image"> </a> </div> <div class="button-container"> </div></section>
+<section class="about" id="contact"><h2 class="section-title">Contact</h2><div class="about-content"><div class="about-text"><p>The main way I would receive contact is via email over at bowiltse@gmail.com. Please feel free to contact me with any questions and or appointment scheduling and then furthermore it will be handled. To see more my social media links are below:</p></div></div></section>
+<footer><div class="social-links">  <a href="https://www.instagram.com/bowiltse/?hl=en">Instagram</a><a href="https://github.com/SAPH1TE/Bo-Wiltse-Site">Source</a><a href="https://www.tiktok.com/@borillatron">TikTok</a><a href="https://wastedtalent.storenvy.com/">Merch</a></div></footer>
+<script>
+    (()=>{
+        let d=document,b=d.createElement("div");
+        b.textContent="Please note this website is in development";
+        Object.assign(b.style,{
+            position:"fixed",
+            bottom:"25px",
+            right:"25px",
+            background:"var(--primary-color)",
+            color:"#ffffff",
+            padding:"12px",
+            borderRadius:"8px",
+            fontSize:"16px",
+            zIndex:9999
+        });
+        d.body.appendChild(b);
+        setTimeout(()=>b.remove(),2500);
+    })();
+</script>
+<script>(function(){const konamiCode=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let codePosition=0;document.addEventListener('keydown',function(e){if(e.key===konamiCode[codePosition]){codePosition++;if(codePosition===konamiCode.length){window.location.href='https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/ect/2.webp';codePosition=0;}}else{codePosition=0;}});})();</script>
+<script>window.addEventListener('load',function(){document.body.classList.add('loaded');setTimeout(function(){document.getElementById('loading-section').remove();},500);});</script>
+</body>
+</html>
