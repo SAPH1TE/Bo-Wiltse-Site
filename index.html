@@ -18,7 +18,7 @@
         nav a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
         nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
         nav a:hover::after { width: 100%; }
-        .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background: url('https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/art_digital/5.webp') no-repeat center center/cover; position: relative; overflow: hidden; }
+        .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background: url('https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/art_3d/bowiltse%20blue%20and%20brown%20rendered%20.png?raw=true') no-repeat center center/cover; position: relative; overflow: hidden; }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
         .hero-content { z-index: 1; }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; margin-bottom: 1rem; color: var(--light-text); text-shadow: 0 0 10px rgba(0,123,255,0.3); animation: glow 2s infinite alternate; }
@@ -28,7 +28,7 @@
         .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background: var(--primary-color); }
         .about-content { display: flex; align-items: center; gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .about-image { flex: 1; max-width: 350px; position: relative; overflow: hidden; border-radius: 250px; box-shadow: 0 15px 15px rgba(0, 0, 0, 0.71); border: 3px solid rgba(0, 123, 255, 0.52); }
-        .about-image img { transform: scale(1.1); width: 100%; border-radius: 30px; transition: transform 0.5s, filter 0.3s; filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3)); }
+        .about-image img { transform: scale(1.1); width: 100%; border-radius: 30px; transition: transform 0.5s, filter 0.3s; filter: drop-shadow( 15px 15px rgba(0, 0, 0, 0.3)); }
         .about-image:hover img { transform: scale(1.2); filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.5)); }
         .about-text { flex: 2; }
         .about-text p { font-size: 1.1rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 2rem; }
@@ -43,13 +43,17 @@
         .card-image { width: 400px; height: 400px; max-width: 400px; max-height: 400px; border-radius: 35px; margin: 1rem 0; padding: 0 1%; transition: transform 0.5s; object-fit: cover; }
         .card-image:hover { transform: scale(1.05); }
         footer { background-color: var(--darker-bg); padding: 1.2rem 2rem; text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); }
+        footer a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
+        footer a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
+        footer a:hover::after { width: 100%; }
         .social-links { margin-bottom: 2rem; }
         .social-links a {text-decoration: none; color: var(--primary-color); font-size: 2rem; margin: 0 1rem; transition: color 0.3s; }
         .social-links a:hover { color: var(--accent-color); }
         @media (max-width: 768px) { nav ul { flex-direction: column; gap: 1rem; } .hero h1 { font-size: 3rem; } .hero p { font-size: 1.4rem; } .services-grid { grid-template-columns: 1fr; } .about-content { flex-direction: column; } }
-        #loading-section{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#ffffff;display:flex;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.5s ease;}
-        .loading-spinner{border:4px solid rgba(0,0,0,0.1);border-top:4px solid var(--primary-color);border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;}
-    </style>
+        #loading-section { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s ease; }
+        .loading-spinner { border: 4px solid rgba(0, 0, 0, 0.1); border-top: 4px solid var(--primary-color); border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        </style>
 
 </head>
 <body>
