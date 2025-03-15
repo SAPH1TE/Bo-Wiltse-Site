@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--==================-->
+<!-- Meta Information -->
+<!--==================-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Las Vegas artist, graffiti art, custom tattoos, 3D modeling, digital illustration, spray paint art, mural artist, airbrush artist, character design, street art, tattoo parlor Las Vegas, custom murals, 3D rendering, art commissions, body art, urban art, stencil art, canvas paintings, sculpture artist, Las Vegas creatives">
+    <meta name="subject" content="Professional Art Services">
+    <meta name="language" content="EN">
+    <meta name="robots" content="index,follow">
+    <meta name="topic" content="Art and Design Services">
+    <meta name="summary" content="Las Vegas-based multidisciplinary artist offering tattoos, digital art, 3D modeling, and custom murals since 1993">
+    <meta name="Classification" content="Artist Portfolio">
+    <meta name="author" content="Bo Wiltse, bowiltse@gmail.com">
+    <meta name="designer" content="Bo Wiltse">
+    <meta name="reply-to" content="bowiltse@gmail.com">
+    <meta name="owner" content="Bo Wiltse">
+    <meta name="url" content="https://bowiltse.com">
+    <meta name="identifier-URL" content="https://bowiltse.com">
+    <meta name="directory" content="submission">
+    <meta name="category" content="Art Services">
+    <meta name="distribution" content="Global">
+    <meta name="rating" content="Safe For Work">
+    <meta name="subtitle" content="Multidisciplinary Visual Artist">
+    <meta name="target" content="all">
+    <meta name="HandheldFriendly" content="False">
+    <meta name="MobileOptimized" content="width">
+    <meta name="DC.title" content="Bo Wiltse">
+    <meta name="medium" content="multimedia">
+    <meta name="syndication-source" content="https://bowiltse.com">
+    <meta name="original-source" content="https://bowiltse.com">
+    <meta name="pageKey" content="artist-portfolio">
+    <meta itemprop="name" content="Bo Wiltse Art">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bowiltse.com">
+    <meta property="og:title" content="Bo Wiltse | Professional Artist">
+    <meta property="og:description" content="Las Vegas-based artist specializing in tattoos, digital art, and 3D modeling services since 1993">
+    <meta property="og:image" content="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/ect/pfp2.webp">
+    <meta name="twitter:card" content="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/ect/pfp2.webp">
+    <meta name="twitter:title" content="Bo Wiltse Art Commissions">
+    <meta name="twitter:description" content="Custom art creations for tattoos, murals, and digital projects - Las Vegas based artist">
+    <meta name="twitter:image" content="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/ect/pfp2.webp">
+    <meta name="twitter:site" content="@bowiltse">
+    <meta name="description" content="Professional Las Vegas artist offering custom tattoos, graffiti art, 3D modeling, and mural services since 1993. Commission your unique artwork today.">
+    <link rel="icon" href="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/1.webp">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Bo Wiltse, art gallery, tattoo artist, digital art, murals, Las Vegas artist">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Professional portfolio of Bo Wiltse featuring tattoo designs, digital art, and mural creations">
+    <title>Bo Wiltse - Professional Artist Portfolio</title>
+
+    <style>
+        /* ================
+           CSS Variables
+           ================ */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #d9d2d2;
+            --accent-color: #0056b3;
+            --dark-bg: #e6e6e6;
+            --darker-bg: #dadada;
+            --light-text: #000000;
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --shadow-medium: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ==============
+           Base Styles
+           ============== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ==============
+           Header Styles
+           ============== */
+        header {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all var(--transition-medium);
+        }
+
+        nav a:hover {
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        /* ================
+           Gallery Styles
+           ================ */
+        .gallery-container {
+            padding: 7rem 1.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            transition: transform var(--transition-medium);
+            aspect-ratio: 1/1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-medium);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ================
+           Filter Controls
+           ================ */
+        .filter-container {
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-dropdown {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 2px solid var(--primary-color);
+            background: white;
+            font-size: 1rem;
+        }
+
+        /* ==============
+           Footer Styles
+           ============== */
+        footer {
+            background: var(--darker-bg);
+            padding: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* ================
+           Loading Overlay
+           ================ */
+        #loading-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: grid;
+            place-items: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(0,0,0,0.1);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ====================
+           Mobile Optimization
+           ==================== */
+        @media (max-width: 768px) {
+            .gallery-container {
+                padding: 6rem 1rem 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Loading Overlay -->
+<div id="loading-section">
+    <div class="loading-spinner"></div>
+</div>
+
+<!-- Site Header -->
+<header>
+    <nav>
+        <ul>
+            <li><a href="https://bowiltse.com">Home</a></li>
+            <li><a href="https://bowiltse.com#about">About</a></li>
+            <li><a href="https://bowiltse.com#services">Services</a></li>
+            <li><a href="https://bowiltse.com/gallery/">Gallery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<main>
+    <div class="gallery-container">
+        <div class="filter-container">
+            <label for="mediaFilter">Filter Media:</label>
+            <select id="mediaFilter" class="filter-dropdown">
+                <option value="all">All Media</option>
+                <option value="art_digital">Digital Art</option>
+                <option value="art_paintings">Paintings</option>
+                <option value="art_tattoos">Tattoos</option>
+            </select>
+        </div>
+
+        <a href="https://bowiltse.com" class="back-button">
+            ← Back to Home
+        </a>
+
+        <div class="gallery-grid"></div>
+    </div>
+</main>
+
+<!-- Site Footer -->
+<footer>
+    <div class="social-links">
+        <a href="https://www.instagram.com/bowiltse/">Instagram</a>
+        <a href="https://github.com/SAPH1TE/Bo-Wiltse-Site">GitHub</a>
+        <a href="https://www.tiktok.com/@borillatron">TikTok</a>
+        <a href="https://wastedtalent.storenvy.com/">Store</a>
+    </div>
+    <p>© 2023 Bo Wiltse. All rights reserved.</p>
+</footer>
+
+<!-- Site Scripts -->
+<script>
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        // DOM Element References
+        const galleryGrid = document.querySelector('.gallery-grid');
+        const loadingSection = document.getElementById('loading-section');
+        const mediaFilter = document.getElementById('mediaFilter');
+
+        // State Management
+        let currentPage = 0;
+        let isLoading = false;
+        let currentFilter = 'all';
+
+        // Category Configuration
+        const categoryMap = {
+            art_digital: 'Digital Art',
+            art_paintings: 'Painting',
+            art_tattoos: 'Tattoo'
+        };
+
+        /**
+         * Loads artworks from GitHub repository
+         * @async
+         */
+        async function loadArtworks() {
+            if (isLoading) return;
+            isLoading = true;
+
+            try {
+                const categories = currentFilter === 'all'
+                    ? Object.keys(categoryMap)
+                    : [currentFilter];
+
+                const newArtworks = categories.flatMap(category =>
+                    Array.from({ length: 3 }, (_, i) => ({
+                        url: `https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/${category}/${currentPage * 3 + i + 1}.webp`,
+                        alt: `${categoryMap[category]} #${currentPage * 3 + i + 1}`
+                    }))
+                );
+
+                // Create gallery items
+                const fragment = document.createDocumentFragment();
+                newArtworks.forEach(art => {
+                    const article = document.createElement('article');
+                    article.className = 'gallery-item';
+                    article.innerHTML = `
+                            <img src="${art.url}"
+                                alt="${art.alt}"
+                                loading="lazy"
+                                onerror="this.style.display='none'; this.parentElement.style.display='none';">
+                        `;
+                    fragment.appendChild(article);
+                });
+
+                galleryGrid.appendChild(fragment);
+                currentPage++;
+            } catch (error) {
+                console.error('Error loading artworks:', error);
+            } finally {
+                isLoading = false;
+                loadingSection.style.display = 'none';
+            }
+        }
+
+        /**
+         * Sets up infinite scroll observer
+         */
+        function initializeIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !isLoading) {
+                    loadArtworks();
+                }
+            }, { threshold: 0.1 });
+
+            const sentinel = document.createElement('div');
+            sentinel.style.height = '20px';
+            galleryGrid.parentNode.appendChild(sentinel);
+            observer.observe(sentinel);
+        }
+
+        // Event Listeners
+        mediaFilter.addEventListener('change', (e) => {
+            currentFilter = e.target.value;
+            currentPage = 0;
+            galleryGrid.innerHTML = '';
+            loadArtworks();
+        });
+
+        // Konami Code Easter Egg
+        const konamiCode = [
+            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft',
+            'ArrowRight', 'b', 'a'
+        ];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            e.key === konamiCode[konamiIndex]
+                ? konamiIndex++
+                : konamiIndex = 0;
+
+            if (konamiIndex === konamiCode.length) {
+                window.location.href = 'https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/2.webp';
+            }
+        });
+
+        // Initialization
+        loadArtworks();
+        initializeIntersectionObserver();
+    });
+
+    // Hide loading screen when window finishes loading
+    window.addEventListener('load', () => {
+        document.getElementById('loading-section').style.display = 'none';
+    });
+</script>
+</body>
+</html>
