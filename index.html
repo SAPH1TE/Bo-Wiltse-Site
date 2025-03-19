@@ -22,7 +22,7 @@
     <meta name="rating" content="Safe For Work">
     <meta name="subtitle" content="Multidisciplinary Visual Artist">
     <meta name="target" content="all">
-    <meta name="HandheldFriendly" content="False">
+    <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="width">
     <meta name="DC.title" content="Bo Wiltse">
     <meta name="medium" content="multimedia">
@@ -43,62 +43,1485 @@
     <meta name="description" content="Professional Las Vegas artist offering custom tattoos, graffiti art, 3D modeling, and mural services since 1993. Commission your unique artwork today.">
     <title>Bo Wiltse | Professional Las Vegas Artist</title>
     <link rel="icon" href="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/1.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-color: #007bff; --secondary-color: #d9d2d2; --accent-color: #0056b3; --dark-bg: #e6e6e6; --darker-bg: #dadada; --light-text: #000000; --gray-text: #181818; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--dark-bg); color: var(--light-text); font-family: 'Raleway', sans-serif; line-height: 1.6; }
-        header { background-color: rgba(255, 255, 255, 0.6); padding: 1.5rem; position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 0, 0, 0.8); }
-        nav ul { display: flex; justify-content: center; list-style: none; gap: 3rem; }
-        nav a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
-        nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
-        nav a:hover::after { width: 100%; }
-        .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; background: url('https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/art_3d/bowiltse%20blue%20and%20brown%20rendered%20.png?raw=true') no-repeat center center/cover; position: relative; overflow: hidden; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
-        .hero-content { z-index: 1; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4.5rem; margin-bottom: 1rem; color: var(--light-text); text-shadow: 0 0 10px rgba(0,123,255,0.3); animation: glow 2s infinite alternate; }
-        @keyframes glow { 0% { text-shadow: 0 0 10px rgba(0,123,255,0.3); } 100% { text-shadow: 0 0 20px rgba(0,123,255,0.5); } }
-        .hero p { font-size: 1.8rem; color: var(--gray-text); margin-bottom: 2rem; }
-        .section-title { text-align: center; font-size: 3rem; margin-bottom: 4rem; font-family: 'Playfair Display', serif; position: relative; }
-        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background: var(--primary-color); }
-        .about-content { display: flex; align-items: center; gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .about-image { flex: 1; max-width: 350px; position: relative; overflow: hidden; border-radius: 250px; box-shadow: 0 15px 15px rgba(0, 0, 0, 0.71); border: 3px solid rgba(0, 123, 255, 0.52); }
-        .about-image img { transform: scale(1.1); width: 100%; border-radius: 30px; transition: transform 0.5s, filter 0.3s; filter: drop-shadow( 15px 15px rgba(0, 0, 0, 0.3)); }
-        .about-image:hover img { transform: scale(1.2); filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.5)); }
-        .about-text { flex: 2; }
-        .about-text p { font-size: 1.1rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 2rem; }
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-        .service-card { text-decoration: none; position: relative; background: linear-gradient(145deg, #f8f9fa, #e9ecef); padding: 1.5rem; border-radius: 20px; text-align: center; overflow: hidden; border: 1px solid rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .service-card .video-background { position: absolute; filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.3)); top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0; transition: opacity 0.5s ease; }
-        .service-card:hover .video-background { opacity: 1; }
-        .service-card:hover h3 { opacity: 0; }
-        .service-card .video-background video { object-fit: cover; width: 100%; height: 100%; }
-        .service-card h3 { font-size: 1.8rem; margin-bottom: 1rem; position: relative; z-index: 2; }
-        .card-image { width: 400px; height: 400px; max-width: 400px; max-height: 400px; border-radius: 35px; margin: 1rem 0; padding: 0 1%; transition: transform 0.5s; object-fit: cover; }
-        .card-image:hover { transform: scale(1.05); }
-        footer { background-color: var(--darker-bg); padding: 1.2rem 2rem; text-align: center; border-top: 1px solid rgba(0, 0, 0, 0.1); }
-        footer a { color: var(--light-text); text-decoration: none; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; position: relative; padding: 0.5rem 0; }
-        footer a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary-color); transition: width 0.3s; }
-        footer a:hover::after { width: 100%; }
-        .social-links { margin-bottom: 2rem; }
-        .social-links a {text-decoration: none; color: var(--primary-color); font-size: 2rem; margin: 0 1rem; transition: color 0.3s; }
-        .social-links a:hover { color: var(--accent-color); }
-        @media (max-width: 768px) { nav ul { flex-direction: column; gap: 1rem; } .hero h1 { font-size: 3rem; } .hero p { font-size: 1.4rem; } .services-grid { grid-template-columns: 1fr; } .about-content { flex-direction: column; } }
-        #loading-section { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #ffffff; display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s ease; }
-        .loading-spinner { border: 4px solid rgba(0, 0, 0, 0.1); border-top: 4px solid var(--primary-color); border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        </style>
+        /* Root Variables */
+        :root {
+            --primary-color: #3a86ff;
+            --secondary-color: #f2f2f2;
+            --accent-color: #0056b3;
+            --dark-bg: #f8f9fa;
+            --darker-bg: #e0e0e0;
+            --light-text: #111111;
+            --gray-text: #333333;
+            --text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            --box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            --transition-fast: 0.3s ease;
+            --transition-medium: 0.5s ease;
+            --border-radius: 12px;
+        }
+
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all var(--transition-fast);
+        }
+
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-fast);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            color: var(--light-text);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background: var(--light-text);
+            border-radius: 3px;
+            transition: all var(--transition-fast);
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width var(--transition-fast);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/art_3d/bowiltse%20blue%20and%20brown%20rendered%20.png?raw=true') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            text-shadow: var(--text-shadow);
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(58, 134, 255, 0.2); }
+            100% { text-shadow: 0 0 20px rgba(58, 134, 255, 0.4); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            color: var(--light-text);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        /* About Section */
+        .about {
+            position: relative;
+            background-color: white;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/ect/subtle-pattern.png') repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            border: 5px solid white;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: transform var(--transition-medium);
+            display: block;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            position: relative;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: var(--light-text);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-medium);
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+            z-index: 2;
+        }
+
+        .service-card:hover .service-video {
+            opacity: 1;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--light-text);
+            position: relative;
+        }
+
+        .service-title::after {
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width var(--transition-fast);
+        }
+
+        .service-card:hover .service-title::after {
+            width: 60px;
+        }
+
+        .service-description {
+            color: var(--gray-text);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .service-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+            transition: color var(--transition-fast);
+        }
+
+        .service-link:hover {
+            color: var(--accent-color);
+        }
+
+        .service-link span {
+            margin-left: 5px;
+            transition: transform var(--transition-fast);
+        }
+
+        .service-link:hover span {
+            transform: translateX(5px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: white;
+            position: relative;
+        }
+
+        .contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/ect/subtle-pattern.png') repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+
+        .contact-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .contact-text {
+            margin-bottom: 2rem;
+            color: var(--gray-text);
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-detail-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-detail-text {
+            color: var(--gray-text);
+        }
+
+        .contact-detail-text a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .contact-detail-text a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all var(--transition-fast);
+            text-decoration: none;
+            color: var(--gray-text);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
+        }
+
+        .contact-form {
+            flex: 1;
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--gray-text);
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Raleway', sans-serif;
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+        }
+
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: 0 4px 10px rgba(58, 134, 255, 0.3);
+            display: inline-block;
+        }
+
+        .form-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(58, 134, 255, 0.4);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: whitesmoke;
+            padding: 3rem 0 1rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .footer-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column {
+            flex: 1;
+            padding: 0 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        .footer-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-text);
+        }
+
+        .footer-about {
+            margin-bottom: 1.5rem;
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            transform: translateX(3px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            color: var(--gray-text);
+        }
+
+        .footer-contact-icon {
+            margin-right: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-developer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Development Banner */
+        .dev-banner {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            animation: slideIn 0.5s ease-out, fadeOut 0.5s 4.5s forwards;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* Loading Spinner */
+        #loading-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(58, 134, 255, 0.2);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+            z-index: 999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+        }
+
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-top {
+                flex-wrap: wrap;
+            }
+
+            .footer-column {
+                flex: 0 0 50%;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                margin: 0 auto 2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-info {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                position: relative;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-10px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all var(--transition-fast);
+                z-index: 99;
+            }
+
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-column {
+                flex: 0 0 100%;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+        }
+    </style>
 </head>
 <body>
-<div id="loading-section"> <div class="loading-spinner"></div> </div>
-<header><nav><ul><li><a href="#home">Home</a></li><li><a href="#about">About Me</a></li><li><a href="#services">Services</a></li></ul></nav></header>
-<section class="hero" id="home"><div class="hero-content"></div><div class="hero-overlay"></div></section>
-<section class="about" id="about"><h2 class="section-title">About Bo</h2><div class="about-content"><div class="about-image"><img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/pfp2.webp" alt="Bo Wiltse Profile Picture"></div><div class="about-text"><p>Born, raised, and based in Las Vegas since 1979, Bo Wiltse has been immersed in the world of art for as long as he can remember. He started his journey as a graffiti artist in 1993, later expanding his craft to tattooing in 2004. With a lifelong passion for creativity, Bo works across multiple mediums, including spray paint, brushes, airbrush, digital illustration, 3D modeling, and sculpting.<br><br>Beyond art, Bo is a proud single father of five amazing children, who are his greatest inspiration. His youngest son, at just 12 years old, even built this website—proof that creativity runs in the family. Art is also a family affair, as Bo works alongside his two talented sisters, who share his passion for tattooing and creativity.(Source code in footer!)<br><br>Over the years, Bo has had the honor of working with numerous well-known clients, including professional athletes and other public figures. His work has also been featured at several major events in his hometown of Las Vegas, further cementing his reputation as a versatile and innovative artist.<br><br>Bo’s artistic journey has been shaped by the support and mentorship of several close friends who guided him along the way. Their influence, along with his sisters, continues to inspire his work, pushing him to create original and meaningful pieces for his clients.<br><br>If you’re looking for an artist who can bring your vision to life in a truly one-of-a-kind way, Bo Wiltse is the creator for you.</p></div></div></section>
-<section class="services" id="services"> <h2 class="section-title">Services</h2> <div class="services-grid"> <a href="https://bowiltse.com/gallery" class="service-card"> <div class="video-background"> <video autoplay muted loop> <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Skulltattoo.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div> <h3>tattoos</h3> <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/ect/TEMPFIX.webp" alt="Murals" class="card-image"> </a> <a href="https://bowiltse.com/gallery" class="service-card"> <div class="video-background"> <video autoplay muted loop> <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/heart.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div> <h3>Illustration</h3> <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_digital/1.webp" alt="Illustrations" class="card-image"> </a> <a href="https://bowiltse.com/gallery" class="service-card"> <div class="video-background"> <video autoplay muted loop> <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Mural.mp4" type="video/mp4"> Your browser does not support the video tag. </video> </div> <h3>Murals</h3> <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_paintings/85.webp" alt="Murals" class="card-image"> </a> </div> <div class="button-container"> </div></section>
-<section class="about" id="contact"><h2 class="section-title">Contact</h2><div class="about-content"><div class="about-text"><p>The main way I would receive contact is via email over at bowiltse@gmail.com. Please feel free to contact me with any questions and or appointment scheduling and then furthermore it will be handled. To see more my social media links are below:</p></div></div></section>
-<footer><div class="social-links">  <a href="https://www.instagram.com/bowiltse/?hl=en">Instagram</a><a href="https://github.com/SAPH1TE/Bo-Wiltse-Site">Source</a><a href="https://www.tiktok.com/@borillatron">TikTok</a><a href="https://wastedtalent.storenvy.com/">Merch</a></div></footer>
-<script> (()=>{ let d=document,b=d.createElement("div"); b.textContent="Please note this website is in development"; Object.assign(b.style,{ position:"fixed", bottom:"25px", right:"25px", background:"var(--primary-color)", color:"#ffffff", padding:"12px", borderRadius:"8px", fontSize:"16px", zIndex:9999 }); d.body.appendChild(b); setTimeout(()=>b.remove(),2500); })();</script>
-<script>(function(){const konamiCode=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];let codePosition=0;document.addEventListener('keydown',function(e){if(e.key===konamiCode[codePosition]){codePosition++;if(codePosition===konamiCode.length){window.location.href='https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/ect/2.webp';codePosition=0;}}else{codePosition=0;}});})();</script>
-<script>window.addEventListener('load',function(){document.body.classList.add('loaded');setTimeout(function(){document.getElementById('loading-section').remove();},500);});</script>
+<!-- Loading Spinner Section -->
+<div id="loading-section">
+    <div class="loading-spinner"></div>
+</div>
+
+<!-- Main Header Navigation -->
+<header>
+    <div class="header-container">
+        <a href="#home" class="logo">
+            <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/1.webp" alt="Bo Wiltse Logo">
+            <span class="logo-text">Bo Wiltse</span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">About Bo</h2>
+
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/pfp2.webp" alt="Bo Wiltse Profile Picture">
+            </div>
+
+            <div class="about-text">
+                <p>Born, raised, and based in <span class="highlight">Las Vegas since 1979</span>, Bo Wiltse has been immersed in the world of art for as long as he can remember. He started his journey as a graffiti artist in 1993, later expanding his craft to tattooing in 2004. With a lifelong passion for creativity, Bo works across multiple mediums, including spray paint, brushes, airbrush, digital illustration, 3D modeling, and sculpting.</p>
+
+                <p>Beyond art, Bo is a proud single father of five amazing children, who are his greatest inspiration. His youngest son, at just 12 years old, even built this website--proof that creativity runs in the family. Art is also a family affair, as Bo works alongside his two talented sisters, who share his passion for tattooing and creativity.</p>
+
+                <p>Over the years, Bo has had the honor of working with numerous well-known clients, including professional athletes and other public figures. His work has also been featured at several major events in his hometown of Las Vegas, further cementing his reputation as a versatile and innovative artist.</p>
+
+                <p>Bo's artistic journey has been shaped by the support and mentorship of several close friends who guided him along the way. Their influence, along with his sisters, continues to inspire his work, pushing him to create original and meaningful pieces for his clients.</p>
+
+                <p>If you're looking for an artist who can bring your vision to life in a truly one-of-a-kind way, Bo Wiltse is the creator for you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">Services</h2>
+
+        <div class="services-grid">
+            <!-- Tattoos Service Card -->
+            <a href="https://bowiltse.com/gallery" class="service-card">
+                <div class="service-image">
+                    <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/ect/TEMPFIX.webp" alt="Tattoo design example">
+                    <video class="service-video" autoplay muted loop playsinline>
+                        <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Skulltattoo.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="service-content">
+                    <div>
+                        <h3 class="service-title">Tattoos</h3>
+                        <p class="service-description">Custom tattoo designs tailored to your vision. Specializing in various styles from realistic to abstract, traditional to modern.</p>
+                    </div>
+                    <div class="service-link">
+                        View Gallery <span>→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Illustration Service Card -->
+            <a href="https://bowiltse.com/gallery" class="service-card">
+                <div class="service-image">
+                    <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_digital/1.webp" alt="Digital illustration example">
+                    <video class="service-video" autoplay muted loop playsinline>
+                        <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/heart.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="service-content">
+                    <div>
+                        <h3 class="service-title">Illustration</h3>
+                        <p class="service-description">Digital and traditional artwork for personal projects, brand identities, publications, and more.</p>
+                    </div>
+                    <div class="service-link">
+                        View Gallery <span>→</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Murals Service Card -->
+            <a href="https://bowiltse.com/gallery" class="service-card">
+                <div class="service-image">
+                    <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_paintings/85.webp" alt="Mural artwork example">
+                    <video class="service-video" autoplay muted loop playsinline>
+                        <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Mural.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="service-content">
+                    <div>
+                        <h3 class="service-title">Murals</h3>
+                        <p class="service-description">Transform your space with custom murals for homes, businesses, and public spaces. Bringing walls to life since 1993.</p>
+                    </div>
+                    <div class="service-link">
+                        View Gallery <span>→</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 class="contact-title">Contact Information</h3>
+                <p class="contact-text">Ready to bring your vision to life? I'm here to help turn your ideas into stunning artwork. Reach out to discuss your project, schedule a consultation, or ask any questions about my services.</p>
+
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">✉</div>
+                        <div class="contact-detail-text">
+                            <strong>Email</strong><br>
+                            <a href="mailto:bowiltse@gmail.com">bowiltse@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">📍</div>
+                        <div class="contact-detail-text">
+                            <strong>Location</strong><br>
+                            Las Vegas, Nevada
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="contact-title">Other Links</h3>
+                <div class="contact-social">
+                    <a href="https://www.instagram.com/bowiltse/?hl=en" class="social-icon" aria-label="Instagram">
+                        <span>II</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@borillatron" class="social-icon" aria-label="TikTok">
+                        <span>TT</span>
+                    </a>
+                    <a href="https://wastedtalent.storenvy.com/" class="social-icon" aria-label="Store">
+                        <span>ST</span>
+                    </a>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">This feature has not been implemented</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">This feature has not been implemented</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">This feature has not been implemented</label>
+                    <input type="text" id="subject" name="subject" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" class="form-input" required></textarea>
+                </div>
+
+                <button type="submit" class="form-button">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container footer-container">
+        <div class="footer-top">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/1.webp" alt="Bo Wiltse Logo">
+                    <div class="footer-logo-text">Bo Wiltse</div>
+                </div>
+                <p class="footer-about">Las Vegas-based multidisciplinary artist with over 30 years of experience in tattooing, digital art, 3D modeling, and custom murals.</p>
+            </div>
+
+            <div class="footer-column">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3 class="footer-heading">Services</h3>
+                <ul class="footer-links">
+                    <li><a href="https://bowiltse.com/gallery">Tattoos</a></li>
+                    <li><a href="https://bowiltse.com/gallery">Digital Art</a></li>
+                    <li><a href="https://bowiltse.com/gallery">Murals</a></li>
+                    <li><a href="https://bowiltse.com/gallery">3D Modeling</a></li>
+                    <li><a href="https://bowiltse.com/gallery">Character Design</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3 class="footer-heading">Connect</h3>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">✉</span>
+                    <span>bowiltse@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <span class="footer-contact-icon">📍</span>
+                    <span>Las Vegas, Nevada</span>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/bowiltse/?hl=en" class="social-icon" aria-label="Instagram">
+                        <span>IG</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@borillatron" class="social-icon" aria-label="TikTok">
+                        <span>TT</span>
+                    </a>
+                    <a href="https://wastedtalent.storenvy.com/" class="social-icon" aria-label="Store">
+                        <span>ST</span>
+                    </a>
+                    <a href="https://github.com/SAPH1TE/Bo-Wiltse-Site" class="social-icon" aria-label="Source Code">
+                        <span>SC</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<div class="back-to-top" id="back-to-top">↑</div>
+
+<!-- Development Banner -->
+<div class="dev-banner" id="dev-banner">Please note this website is in development</div>
+
+<!-- Image Modal -->
+<div class="modal" id="gallery-modal">
+    <div class="modal-content">
+        <button class="modal-close" id="modal-close">×</button>
+        <img src="" alt="Enlarged gallery image" class="modal-image" id="modal-image">
+    </div>
+</div>
+
+<!-- Scripts -->
+<script>
+    // Wait for document to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elements
+        const loadingSection = document.getElementById('loading-section');
+        const backToTopBtn = document.getElementById('back-to-top');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        const header = document.querySelector('header');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const galleryTabs = document.querySelectorAll('.gallery-tab');
+        const modal = document.getElementById('gallery-modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalClose = document.getElementById('modal-close');
+        const contactForm = document.getElementById('contact-form');
+        const testimonialItems = document.querySelectorAll('.testimonial-item');
+
+        // Hide loading screen after page loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                loadingSection.style.opacity = '0';
+                setTimeout(function() {
+                    loadingSection.style.display = 'none';
+                }, 500);
+            }, 500);
+        });
+
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            nav.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!nav.contains(event.target) && !menuToggle.contains(event.target) && nav.classList.contains('open')) {
+                nav.classList.remove('open');
+                menuToggle.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Close mobile menu if open
+                if (nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    menuToggle.classList.remove('active');
+                }
+
+                // Scroll to section
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Back to top button visibility
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Back to top button functionality
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Gallery filtering
+        galleryTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                galleryTabs.forEach(t => t.classList.remove('active'));
+
+                // Add active class to clicked tab
+                this.classList.add('active');
+
+                // Get selected category
+                const category = this.getAttribute('data-category');
+
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Gallery modal
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').getAttribute('src');
+                modalImage.setAttribute('src', imgSrc);
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal on button click
+        modalClose.addEventListener('click', function() {
+            modal.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal on click outside
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.classList.contains('open')) {
+                modal.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Contact form submission (simulation)
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            setTimeout(function() {
+                const formFields = contactForm.querySelectorAll('.form-input');
+                formFields.forEach(field => field.value = '');
+
+                submitBtn.textContent = 'Message Sent!';
+
+                setTimeout(function() {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            }, 1500);
+        });
+
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonialItems.forEach(item => item.style.display = 'none');
+            testimonialItems[index].style.display = 'block';
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonialItems.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Initialize testimonial slider
+        showTestimonial(0);
+
+        // Auto-rotate testimonials
+        setInterval(nextTestimonial, 5000);
+
+        // Konami Code Easter Egg
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+
+                if (konamiIndex === konamiCode.length) {
+                    window.location.href = 'https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/ect/2.webp';
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        // Development banner auto-hide
+        setTimeout(function() {
+            const devBanner = document.getElementById('dev-banner');
+            if (devBanner) {
+                devBanner.addEventListener('animationend', function() {
+                    if (this.style.opacity === '0') {
+                        this.remove();
+                    }
+                });
+            }
+        }, 5000);
+    });
+</script>
 </body>
 </html>
