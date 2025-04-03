@@ -1256,7 +1256,7 @@
                         <input type="hidden" name="_captcha" value="true">
                         <button type="submit" class="form-button">Send Message</button>
                     </form>
-                    <div class="g-recaptcha" data-sitekey="6LcFIAgrAAAAAOdrsINOt2BBbIiR-RWiHkhR5Irh"></div>
+                    <div class="g-recaptcha" data-sitekey="6LfFLAgrAAAAAM5GPF_RoFqZvttHZ3Zgo6rZ6SgJ"></div>
                     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                 </div>
             </div>
@@ -1421,8 +1421,6 @@
         // Handle form submission (prevent default to show success message)
         if (contactForm) {
             contactForm.addEventListener('submit', function(event) {
-                // For demo purposes only, remove this in production
-                /*
                 event.preventDefault();
                 const submitBtn = this.querySelector('button[type="submit"]');
                 const originalText = submitBtn.textContent;
@@ -1441,7 +1439,6 @@
                         submitBtn.disabled = false;
                     }, 2000);
                 }, 1500);
-                */
             });
         }
 
