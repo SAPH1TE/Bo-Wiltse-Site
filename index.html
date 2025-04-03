@@ -1233,7 +1233,7 @@
                 <!-- Start of Contact Form -->
                 <div class="contact-form">
                     <h3 class="contact-title">Send a Message</h3>
-                    <form action="https://formsubmit.co/sssaphite@gmail.com" method="POST" id="contact-form">
+                    <form action="https://formsubmit.co/720e6735e282b7bc7cda2f0b1462d949" method="POST" id="contact-form">
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" class="form-input" required pattern="^[A-Za-z\s\-']+$" title="Only letters, spaces, hyphens, and apostrophes are allowed">
@@ -1255,9 +1255,8 @@
                         <input type="text" name="_honey" style="display:none;">
                         <input type="hidden" name="_captcha" value="true">
                         <button type="submit" class="form-button">Send Message</button>
+                        <input type="hidden" name="_next" value="https://bowiltse.com/thanks.html">
                     </form>
-                    <div class="g-recaptcha" data-sitekey="6LfFLAgrAAAAAM5GPF_RoFqZvttHZ3Zgo6rZ6SgJ"></div>
-                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                 </div>
             </div>
         </div>
@@ -1419,26 +1418,24 @@
         });
 
         // Handle form submission (prevent default to show success message)
+// Handle form submission
         if (contactForm) {
             contactForm.addEventListener('submit', function(event) {
-                event.preventDefault();
                 const submitBtn = this.querySelector('button[type="submit"]');
                 const originalText = submitBtn.textContent;
 
+                // Show sending state
                 submitBtn.textContent = 'Sending...';
                 submitBtn.disabled = true;
 
+                // Let the form submit normally to FormSubmit.co
+                // The form will handle the actual submission
+
+                // Reset button after submission completes (this runs while browser is redirecting)
                 setTimeout(function() {
-                    const formFields = contactForm.querySelectorAll('.form-input');
-                    formFields.forEach(field => field.value = '');
-
-                    submitBtn.textContent = 'Message Sent!';
-
-                    setTimeout(function() {
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                    }, 2000);
-                }, 1500);
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
             });
         }
 
