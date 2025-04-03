@@ -35,14 +35,14 @@
     <meta property="og:title" content="Bo Wiltse | Professional Artist">
     <meta property="og:description" content="Las Vegas-based artist specializing in tattoos, digital art, and 3D modeling services since 1993">
     <meta property="og:image" content="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/ect/pfp2.webp">
-    <meta name="twitter:card" content="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/ect/pfp2.webp">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bo Wiltse Art Commissions">
     <meta name="twitter:description" content="Custom art creations for tattoos, murals, and digital projects - Las Vegas based artist">
     <meta name="twitter:image" content="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/main/ect/pfp2.webp">
     <meta name="twitter:site" content="@bowiltse">
     <meta name="description" content="Professional Las Vegas artist offering custom tattoos, graffiti art, 3D modeling, and mural services since 1993. Commission your unique artwork today.">
     <title>Bo Wiltse | Professional Las Vegas Artist</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/1.webp">
+    <link rel="icon" href="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/1.webp" type="image/webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
@@ -94,10 +94,28 @@
             border-radius: 10px;
         }
 
+        /* Accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* Focus Styles */
+        a:focus, button:focus, input:focus, textarea:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
         /* Header Styles */
         header {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -105,8 +123,8 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             transition: all var(--transition-fast);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-
 
         .header-container {
             max-width: 1400px;
@@ -114,17 +132,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all var(--transition-fast);
+            padding: 0 2rem;
         }
 
         .logo {
@@ -135,9 +143,10 @@
 
         .logo img {
             height: 40px;
-            width: auto;
+            width: 40px;
             margin-right: 10px;
             border-radius: 50%;
+            object-fit: cover;
         }
 
         .logo-text {
@@ -154,6 +163,7 @@
             border: none;
             cursor: pointer;
             padding: 0.5rem;
+            z-index: 1001;
         }
 
         .menu-toggle span {
@@ -194,11 +204,11 @@
             transition: width var(--transition-fast);
         }
 
-        nav a:hover {
+        nav a:hover, nav a:focus {
             color: var(--primary-color);
         }
 
-        nav a:hover::after {
+        nav a:hover::after, nav a:focus::after {
             width: 100%;
         }
 
@@ -212,8 +222,19 @@
             background: url('https://github.com/SAPH1TE/Bo-Wiltse-Site/blob/main/art_3d/bowiltse%20blue%20and%20brown%20rendered%20.png?raw=true') no-repeat center center/cover;
             position: relative;
             overflow: hidden;
+            margin-top: 70px; /* Account for fixed header */
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -222,7 +243,7 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             color: var(--light-text);
             text-shadow: var(--text-shadow);
@@ -238,11 +259,7 @@
             font-size: 1.5rem;
             color: var(--gray-text);
             margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
-
 
         /* Section Styles */
         section {
@@ -382,7 +399,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             position: relative;
             z-index: 1;
@@ -402,7 +419,7 @@
             color: var(--light-text);
         }
 
-        .service-card:hover {
+        .service-card:hover, .service-card:focus {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
@@ -420,7 +437,8 @@
             transition: transform var(--transition-medium);
         }
 
-        .service-card:hover .service-image img {
+        .service-card:hover .service-image img,
+        .service-card:focus .service-image img {
             transform: scale(1.1);
         }
 
@@ -436,7 +454,8 @@
             z-index: 2;
         }
 
-        .service-card:hover .service-video {
+        .service-card:hover .service-video,
+        .service-card:focus .service-video {
             opacity: 1;
         }
 
@@ -467,7 +486,8 @@
             transition: width var(--transition-fast);
         }
 
-        .service-card:hover .service-title::after {
+        .service-card:hover .service-title::after,
+        .service-card:focus .service-title::after {
             width: 60px;
         }
 
@@ -487,7 +507,7 @@
             transition: color var(--transition-fast);
         }
 
-        .service-link:hover {
+        .service-link:hover, .service-link:focus {
             color: var(--accent-color);
         }
 
@@ -496,7 +516,7 @@
             transition: transform var(--transition-fast);
         }
 
-        .service-link:hover span {
+        .service-link:hover span, .service-link:focus span {
             transform: translateX(5px);
         }
 
@@ -586,8 +606,9 @@
             transition: color var(--transition-fast);
         }
 
-        .contact-detail-text a:hover {
+        .contact-detail-text a:hover, .contact-detail-text a:focus {
             color: var(--accent-color);
+            text-decoration: underline;
         }
 
         .contact-social {
@@ -608,7 +629,7 @@
             color: var(--gray-text);
         }
 
-        .social-icon:hover {
+        .social-icon:hover, .social-icon:focus {
             background: var(--primary-color);
             color: white;
             transform: translateY(-3px);
@@ -669,7 +690,7 @@
             display: inline-block;
         }
 
-        .form-button:hover {
+        .form-button:hover, .form-button:focus {
             background: var(--accent-color);
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(58, 134, 255, 0.4);
@@ -700,13 +721,16 @@
 
         .footer-top {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             margin-bottom: 3rem;
         }
 
         .footer-column {
             flex: 1;
+            min-width: 200px;
             padding: 0 1rem;
+            margin-bottom: 2rem;
         }
 
         .footer-logo {
@@ -717,9 +741,10 @@
 
         .footer-logo img {
             height: 50px;
-            width: auto;
+            width: 50px;
             margin-right: 0.5rem;
             border-radius: 50%;
+            object-fit: cover;
         }
 
         .footer-logo-text {
@@ -764,11 +789,11 @@
         .footer-links a {
             color: var(--gray-text);
             text-decoration: none;
-            transition: color var(--transition-fast);
+            transition: color var(--transition-fast), transform var(--transition-fast);
             display: inline-block;
         }
 
-        .footer-links a:hover {
+        .footer-links a:hover, .footer-links a:focus {
             color: var(--primary-color);
             transform: translateX(3px);
         }
@@ -789,6 +814,7 @@
             display: flex;
             gap: 1rem;
             margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .footer-developer a {
@@ -796,30 +822,36 @@
             text-decoration: none;
         }
 
-        /* Development Banner */
-        .dev-banner {
+        .footer-developer a:hover, .footer-developer a:focus {
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background: var(--primary-color);
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            z-index: 9999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+            z-index: 999;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            animation: slideIn 0.5s ease-out, fadeOut 0.5s 4.5s forwards;
+            font-size: 1.5rem;
+            border: none;
         }
 
-        @keyframes slideIn {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; visibility: hidden; }
+        .back-to-top:hover, .back-to-top:focus {
+            background: var(--accent-color);
+            transform: translateY(-3px);
         }
 
         /* Loading Spinner */
@@ -851,88 +883,40 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Back to Top Button */
-        .back-to-top {
+        /* Development Banner */
+        .dev-banner {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 25px;
+            right: 25px;
             background: var(--primary-color);
             color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-fast);
-            z-index: 999;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 9998;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            animation: slideIn 0.5s ease-out, fadeOut 0.5s 4.5s forwards;
         }
 
-        .back-to-top:hover {
-            background: var(--accent-color);
-            transform: translateY(-3px);
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        /* Modal Styles */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-fast);
-        }
-
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-        }
-
-        .modal-image {
-            max-width: 100%;
-            max-height: 80vh;
-            display: block;
-            border-radius: 5px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
         }
 
         /* Responsive Styles */
         @media (max-width: 1200px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .footer-top {
                 flex-wrap: wrap;
             }
 
             .footer-column {
-                flex: 0 0 50%;
-                margin-bottom: 2rem;
+                flex: 0 0 calc(50% - 2rem);
             }
         }
 
@@ -957,36 +941,45 @@
             .contact-info {
                 margin-bottom: 2rem;
             }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .header-container {
-                position: relative;
-            }
-
             .menu-toggle {
                 display: block;
             }
 
             nav {
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 70px;
                 left: 0;
                 width: 100%;
+                height: 0;
                 background: white;
-                padding: 1rem;
+                overflow: hidden;
+                transition: height var(--transition-fast);
                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                transform: translateY(-10px);
-                opacity: 0;
-                visibility: hidden;
-                transition: all var(--transition-fast);
-                z-index: 99;
+                z-index: 1000;
             }
-
 
             nav ul {
                 flex-direction: column;
                 gap: 1rem;
+                padding: 0 2rem;
+            }
+
+            nav li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav a {
+                width: 100%;
+                display: block;
+                padding: 0.75rem 0;
             }
 
             .hero h1 {
@@ -997,13 +990,20 @@
                 font-size: 1.2rem;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
+            .section-title {
+                font-size: 2rem;
             }
-
 
             .footer-column {
                 flex: 0 0 100%;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
 
             .menu-toggle.active span:nth-child(1) {
@@ -1020,6 +1020,13 @@
         }
 
         @media (max-width: 576px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
 
             .hero h1 {
                 font-size: 2rem;
@@ -1033,29 +1040,50 @@
                 font-size: 1.8rem;
             }
 
+            .about-image {
+                max-width: 250px;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .contact-social {
+                justify-content: center;
+            }
+        }
+
+        /* Fix for iOS Safari */
+        @supports (-webkit-touch-callout: none) {
+            .hero, .about, .services, .contact {
+                background-attachment: scroll;
+            }
         }
     </style>
 </head>
 <body>
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="visually-hidden">Skip to main content</a>
+
 <!-- Loading Spinner Section -->
-<div id="loading-section">
+<div id="loading-section" aria-hidden="true">
     <div class="loading-spinner"></div>
 </div>
 
 <!-- Main Header Navigation -->
 <header>
     <div class="header-container">
-        <a href="#home" class="logo">
+        <a href="#home" class="logo" aria-label="Bo Wiltse - Home">
             <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/1.webp" alt="Bo Wiltse Logo">
             <span class="logo-text">Bo Wiltse</span>
         </a>
-        <button class="menu-toggle" aria-label="Toggle navigation menu">
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
-        <nav>
+        <nav id="main-nav">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1066,172 +1094,175 @@
     </div>
 </header>
 
-<!-- Hero Section -->
-<section class="hero" id="home">
-</section>
+<!-- Main Content -->
+<main id="main-content">
+    <section class="hero" id="home" aria-label="Introduction"></section>
+    <!-- About Section -->
+    <section class="about" id="about" aria-labelledby="about-title">
+        <div class="container">
+            <h2 class="section-title" id="about-title">About Bo</h2>
 
-<!-- About Section -->
-<section class="about" id="about">
-    <div class="container">
-        <h2 class="section-title">About Bo</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/pfp2.webp" alt="Bo Wiltse - Professional artist from Las Vegas">
+                </div>
 
-        <div class="about-content">
-            <div class="about-image">
-                <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/pfp2.webp" alt="Bo Wiltse Profile Picture">
-            </div>
+                <div class="about-text">
+                    <p>Born, raised, and based in <span class="highlight">Las Vegas since 1979</span>, Bo Wiltse has been immersed in the world of art for as long as he can remember. He started his journey as a graffiti artist in 1993, later expanding his craft to tattooing in 2004. With a lifelong passion for creativity, Bo works across multiple mediums, including spray paint, brushes, airbrush, digital illustration, 3D modeling, and sculpting.</p>
 
-            <div class="about-text">
-                <p>Born, raised, and based in <span class="highlight">Las Vegas since 1979</span>, Bo Wiltse has been immersed in the world of art for as long as he can remember. He started his journey as a graffiti artist in 1993, later expanding his craft to tattooing in 2004. With a lifelong passion for creativity, Bo works across multiple mediums, including spray paint, brushes, airbrush, digital illustration, 3D modeling, and sculpting.</p>
+                    <p>Beyond art, Bo is a proud single father of five amazing children, who are his greatest inspiration. His youngest son, at just 12 years old, even built this website--proof that creativity runs in the family. Art is also a family affair, as Bo works alongside his two talented sisters, who share his passion for tattooing and creativity.</p>
 
-                <p>Beyond art, Bo is a proud single father of five amazing children, who are his greatest inspiration. His youngest son, at just 12 years old, even built this website--proof that creativity runs in the family. Art is also a family affair, as Bo works alongside his two talented sisters, who share his passion for tattooing and creativity.</p>
+                    <p>Over the years, Bo has had the honor of working with numerous well-known clients, including professional athletes and other public figures. His work has also been featured at several major events in his hometown of Las Vegas, further cementing his reputation as a versatile and innovative artist.</p>
 
-                <p>Over the years, Bo has had the honor of working with numerous well-known clients, including professional athletes and other public figures. His work has also been featured at several major events in his hometown of Las Vegas, further cementing his reputation as a versatile and innovative artist.</p>
+                    <p>Bo's artistic journey has been shaped by the support and mentorship of several close friends who guided him along the way. Their influence, along with his sisters, continues to inspire his work, pushing him to create original and meaningful pieces for his clients.</p>
 
-                <p>Bo's artistic journey has been shaped by the support and mentorship of several close friends who guided him along the way. Their influence, along with his sisters, continues to inspire his work, pushing him to create original and meaningful pieces for his clients.</p>
-
-                <p>If you're looking for an artist who can bring your vision to life in a truly one-of-a-kind way, Bo Wiltse is the creator for you.</p>
+                    <p>If you're looking for an artist who can bring your vision to life in a truly one-of-a-kind way, Bo Wiltse is the creator for you.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Services Section -->
-<section class="services" id="services">
-    <div class="container">
-        <h2 class="section-title">Services</h2>
+    <!-- Services Section -->
+    <section class="services" id="services" aria-labelledby="services-title">
+        <div class="container">
+            <h2 class="section-title" id="services-title">Services</h2>
 
-        <div class="services-grid">
-            <!-- Tattoos Service Card -->
-            <a href="https://bowiltse.com/gallery" class="service-card">
-                <div class="service-image">
-                    <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/ect/TEMPFIX.webp" alt="Tattoo design example">
-                    <video class="service-video" autoplay muted loop playsinline>
-                        <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Skulltattoo.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="service-content">
-                    <div>
-                        <h3 class="service-title">Tattoos</h3>
-                        <p class="service-description">Custom tattoo designs tailored to your vision. Specializing in various styles from realistic to abstract, traditional to modern.</p>
+            <div class="services-grid">
+                <!-- Tattoos Service Card -->
+                <a href="https://bowiltse.com/gallery" class="service-card" aria-labelledby="tattoo-title">
+                    <div class="service-image">
+                        <img src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/ect/TEMPFIX.webp" alt="Example of custom tattoo design">
+                        <video class="service-video" autoplay muted loop playsinline aria-hidden="true">
+                            <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Skulltattoo.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="service-link">
-                        View Gallery <span>→</span>
+                    <div class="service-content">
+                        <div>
+                            <h3 class="service-title" id="tattoo-title">Tattoos</h3>
+                            <p class="service-description">Custom tattoo designs tailored to your vision. Specializing in various styles from realistic to abstract, traditional to modern.</p>
+                        </div>
+                        <div class="service-link">
+                            View Gallery <span>→</span>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Illustration Service Card -->
-            <a href="https://bowiltse.com/gallery" class="service-card">
-                <div class="service-image">
-                    <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_digital/1.webp" alt="Digital illustration example">
-                    <video class="service-video" autoplay muted loop playsinline>
-                        <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/heart.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="service-content">
-                    <div>
-                        <h3 class="service-title">Illustration</h3>
-                        <p class="service-description">Digital and traditional artwork for personal projects, brand identities, publications, and more.</p>
+                <!-- Illustration Service Card -->
+                <a href="https://bowiltse.com/gallery" class="service-card" aria-labelledby="illustration-title">
+                    <div class="service-image">
+                        <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_digital/1.webp" alt="Example of digital illustration artwork">
+                        <video class="service-video" autoplay muted loop playsinline aria-hidden="true">
+                            <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/heart.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="service-link">
-                        View Gallery <span>→</span>
+                    <div class="service-content">
+                        <div>
+                            <h3 class="service-title" id="illustration-title">Illustration</h3>
+                            <p class="service-description">Digital and traditional artwork for personal projects, brand identities, publications, and more.</p>
+                        </div>
+                        <div class="service-link">
+                            View Gallery <span>→</span>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Murals Service Card -->
-            <a href="https://bowiltse.com/gallery" class="service-card">
-                <div class="service-image">
-                    <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_paintings/85.webp" alt="Mural artwork example">
-                    <video class="service-video" autoplay muted loop playsinline>
-                        <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Mural.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="service-content">
-                    <div>
-                        <h3 class="service-title">Murals</h3>
-                        <p class="service-description">Transform your space with custom murals for homes, businesses, and public spaces. Bringing walls to life since 1993.</p>
+                <!-- Murals Service Card -->
+                <a href="https://bowiltse.com/gallery" class="service-card" aria-labelledby="mural-title">
+                    <div class="service-image">
+                        <img src="https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/art_paintings/85.webp" alt="Example of mural artwork">
+                        <video class="service-video" autoplay muted loop playsinline aria-hidden="true">
+                            <source src="https://github.com/SAPH1TE/Bo-Wiltse-Site/raw/refs/heads/main/Videos/Mural.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="service-link">
-                        View Gallery <span>→</span>
+                    <div class="service-content">
+                        <div>
+                            <h3 class="service-title" id="mural-title">Murals</h3>
+                            <p class="service-description">Transform your space with custom murals for homes, businesses, and public spaces. Bringing walls to life since 1993.</p>
+                        </div>
+                        <div class="service-link">
+                            View Gallery <span>→</span>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- Contact Section -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <h2 class="section-title" id="contact-title">Get In Touch</h2>
 
-<!-- Contact Section -->
-<section class="contact" id="contact">
-    <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="contact-title">Contact Information</h3>
+                    <p class="contact-text">Ready to bring your vision to life? I'm here to help turn your ideas into stunning artwork. Reach out to discuss your project, schedule a consultation, or ask any questions about my services.</p>
 
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3 class="contact-title">Contact Information</h3>
-                <p class="contact-text">Ready to bring your vision to life? I'm here to help turn your ideas into stunning artwork. Reach out to discuss your project, schedule a consultation, or ask any questions about my services.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon" aria-hidden="true">✉</div>
+                            <div class="contact-detail-text">
+                                <strong>Email</strong><br>
+                                <a href="mailto:bowiltse@gmail.com">bowiltse@gmail.com</a>
+                            </div>
+                        </div>
 
-                <div class="contact-details">
-                    <div class="contact-detail">
-                        <div class="contact-detail-icon">✉</div>
-                        <div class="contact-detail-text">
-                            <strong>Email</strong><br>
-                            <a href="mailto:bowiltse@gmail.com">bowiltse@gmail.com</a>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon" aria-hidden="true">📍</div>
+                            <div class="contact-detail-text">
+                                <strong>Location</strong><br>
+                                Las Vegas, Nevada
+                            </div>
                         </div>
                     </div>
 
-                    <div class="contact-detail">
-                        <div class="contact-detail-icon">📍</div>
-                        <div class="contact-detail-text">
-                            <strong>Location</strong><br>
-                            Las Vegas, Nevada
-                        </div>
+                    <h3 class="contact-title">Connect on Social Media</h3>
+                    <div class="contact-social">
+                        <a href="https://www.instagram.com/bowiltse/?hl=en" class="social-icon" aria-label="Instagram Profile">
+                            <span>IG</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@borillatron" class="social-icon" aria-label="TikTok Profile">
+                            <span>TT</span>
+                        </a>
+                        <a href="https://wastedtalent.storenvy.com/" class="social-icon" aria-label="Online Store">
+                            <span>ST</span>
+                        </a>
                     </div>
                 </div>
 
-                <h3 class="contact-title">Other Links</h3>
-                <div class="contact-social">
-                    <a href="https://www.instagram.com/bowiltse/?hl=en" class="social-icon" aria-label="Instagram">
-                        <span>II</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@borillatron" class="social-icon" aria-label="TikTok">
-                        <span>TT</span>
-                    </a>
-                    <a href="https://wastedtalent.storenvy.com/" class="social-icon" aria-label="Store">
-                        <span>ST</span>
-                    </a>
+                <!-- Start of Contact Form -->
+                <div class="contact-form">
+                    <h3 class="contact-title">Send a Message</h3>
+                    <form action="https://formsubmit.co/720e6735e282b7bc7cda2f0b1462d949" method="POST" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required pattern="^[A-Za-z\s\-']+$" title="Only letters, spaces, hyphens, and apostrophes are allowed">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Enter a valid email address">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-input" required></textarea>
+                        </div>
+
+                        <input type="hidden" name="_subject" value="New Contact Form Submission">
+                        <input type="hidden" name="_next" value="thanks.html">
+                        <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I'll get back to you soon.">
+                        <input type="text" name="_honey" style="display:none;">
+                        <input type="hidden" name="_captcha" value="true">
+                        <button type="submit" class="form-button">Send Message</button>
+                    </form>
+                    <div class="g-recaptcha" data-sitekey="6LcFIAgrAAAAAOdrsINOt2BBbIiR-RWiHkhR5Irh"></div>
+                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                 </div>
             </div>
-
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <label for="name">This feature has not been implemented</label>
-                    <input type="text" id="name" name="name" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">This feature has not been implemented</label>
-                    <input type="email" id="email" name="email" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="subject">This feature has not been implemented</label>
-                    <input type="text" id="subject" name="subject" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" class="form-input" required></textarea>
-                </div>
-
-                <button type="submit" class="form-button">Send Message</button>
-            </form>
         </div>
-    </div>
-</section>
-
-<!-- Footer -->
+    </section>
+</main>
 <footer>
     <div class="container footer-container">
         <div class="footer-top">
@@ -1267,21 +1298,21 @@
             <div class="footer-column">
                 <h3 class="footer-heading">Connect</h3>
                 <div class="footer-contact-item">
-                    <span class="footer-contact-icon">✉</span>
+                    <span class="footer-contact-icon" aria-hidden="true">✉</span>
                     <span>bowiltse@gmail.com</span>
                 </div>
                 <div class="footer-contact-item">
-                    <span class="footer-contact-icon">📍</span>
+                    <span class="footer-contact-icon" aria-hidden="true">📍</span>
                     <span>Las Vegas, Nevada</span>
                 </div>
                 <div class="footer-social">
-                    <a href="https://www.instagram.com/bowiltse/?hl=en" class="social-icon" aria-label="Instagram">
+                    <a href="https://www.instagram.com/bowiltse/?hl=en" class="social-icon" aria-label="Instagram Profile">
                         <span>IG</span>
                     </a>
-                    <a href="https://www.tiktok.com/@borillatron" class="social-icon" aria-label="TikTok">
+                    <a href="https://www.tiktok.com/@borillatron" class="social-icon" aria-label="TikTok Profile">
                         <span>TT</span>
                     </a>
-                    <a href="https://wastedtalent.storenvy.com/" class="social-icon" aria-label="Store">
+                    <a href="https://wastedtalent.storenvy.com/" class="social-icon" aria-label="Online Store">
                         <span>ST</span>
                     </a>
                     <a href="https://github.com/SAPH1TE/Bo-Wiltse-Site" class="social-icon" aria-label="Source Code">
@@ -1294,18 +1325,10 @@
 </footer>
 
 <!-- Back to Top Button -->
-<div class="back-to-top" id="back-to-top">↑</div>
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
 
 <!-- Development Banner -->
-<div class="dev-banner" id="dev-banner">Please note this website is in development</div>
-
-<!-- Image Modal -->
-<div class="modal" id="gallery-modal">
-    <div class="modal-content">
-        <button class="modal-close" id="modal-close">×</button>
-        <img src="" alt="Enlarged gallery image" class="modal-image" id="modal-image">
-    </div>
-</div>
+<div class="dev-banner" id="dev-banner" aria-hidden="true">Please note this website is in development</div>
 
 <!-- Scripts -->
 <script>
@@ -1317,13 +1340,7 @@
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
         const header = document.querySelector('header');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const galleryTabs = document.querySelectorAll('.gallery-tab');
-        const modal = document.getElementById('gallery-modal');
-        const modalImage = document.getElementById('modal-image');
-        const modalClose = document.getElementById('modal-close');
         const contactForm = document.getElementById('contact-form');
-        const testimonialItems = document.querySelectorAll('.testimonial-item');
 
         // Hide loading screen after page loads
         window.addEventListener('load', function() {
@@ -1337,8 +1354,12 @@
 
         // Mobile menu toggle
         menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
+            this.classList.toggle('active');
             nav.classList.toggle('open');
+
+            // Update ARIA attributes
+            const isExpanded = this.classList.contains('active');
+            this.setAttribute('aria-expanded', isExpanded);
         });
 
         // Close mobile menu when clicking outside
@@ -1346,6 +1367,7 @@
             if (!nav.contains(event.target) && !menuToggle.contains(event.target) && nav.classList.contains('open')) {
                 nav.classList.remove('open');
                 menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', false);
             }
         });
 
@@ -1358,6 +1380,7 @@
                 if (nav.classList.contains('open')) {
                     nav.classList.remove('open');
                     menuToggle.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', false);
                 }
 
                 // Scroll to section
@@ -1367,19 +1390,16 @@
                         top: target.offsetTop - 80,
                         behavior: 'smooth'
                     });
+
+                    // Set focus to the section for screen readers
+                    target.setAttribute('tabindex', '-1');
+                    target.focus({ preventScroll: true });
                 }
             });
         });
 
-        // Header scroll effect
+        // Back to top button visibility
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
-            // Back to top button visibility
             if (window.scrollY > 500) {
                 backToTopBtn.classList.add('visible');
             } else {
@@ -1393,134 +1413,94 @@
                 top: 0,
                 behavior: 'smooth'
             });
+
+            // Set focus back to the top of the page
+            document.querySelector('h1').focus();
         });
 
-        // Gallery filtering
-        galleryTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Remove active class from all tabs
-                galleryTabs.forEach(t => t.classList.remove('active'));
+        // Handle form submission (prevent default to show success message)
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                // For demo purposes only, remove this in production
+                /*
+                event.preventDefault();
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
 
-                // Add active class to clicked tab
-                this.classList.add('active');
-
-                // Get selected category
-                const category = this.getAttribute('data-category');
-
-                // Filter gallery items
-                galleryItems.forEach(item => {
-                    if (category === 'all' || item.getAttribute('data-category') === category) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Gallery modal
-        galleryItems.forEach(item => {
-            item.addEventListener('click', function() {
-                const imgSrc = this.querySelector('img').getAttribute('src');
-                modalImage.setAttribute('src', imgSrc);
-                modal.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        // Close modal on button click
-        modalClose.addEventListener('click', function() {
-            modal.classList.remove('open');
-            document.body.style.overflow = 'auto';
-        });
-
-        // Close modal on click outside
-        modal.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.classList.remove('open');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Close modal on escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && modal.classList.contains('open')) {
-                modal.classList.remove('open');
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        // Contact form submission (simulation)
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            // Simulate form submission
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            setTimeout(function() {
-                const formFields = contactForm.querySelectorAll('.form-input');
-                formFields.forEach(field => field.value = '');
-
-                submitBtn.textContent = 'Message Sent!';
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
 
                 setTimeout(function() {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
-            }, 1500);
-        });
+                    const formFields = contactForm.querySelectorAll('.form-input');
+                    formFields.forEach(field => field.value = '');
 
-        // Simple testimonial slider
-        let currentTestimonial = 0;
+                    submitBtn.textContent = 'Message Sent!';
 
-        function showTestimonial(index) {
-            testimonialItems.forEach(item => item.style.display = 'none');
-            testimonialItems[index].style.display = 'block';
+                    setTimeout(function() {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }, 2000);
+                }, 1500);
+                */
+            });
         }
-
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonialItems.length;
-            showTestimonial(currentTestimonial);
-        }
-
-        // Initialize testimonial slider
-        showTestimonial(0);
-
-        // Auto-rotate testimonials
-        setInterval(nextTestimonial, 5000);
-
-        // Konami Code Easter Egg
-        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        let konamiIndex = 0;
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === konamiCode[konamiIndex]) {
-                konamiIndex++;
-
-                if (konamiIndex === konamiCode.length) {
-                    window.location.href = 'https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/refs/heads/main/ect/2.webp';
-                    konamiIndex = 0;
-                }
-            } else {
-                konamiIndex = 0;
-            }
-        });
 
         // Development banner auto-hide
         setTimeout(function() {
             const devBanner = document.getElementById('dev-banner');
             if (devBanner) {
                 devBanner.addEventListener('animationend', function() {
-                    if (this.style.opacity === '0') {
-                        this.remove();
-                    }
+                    this.remove();
                 });
             }
         }, 5000);
+
+        // Fix iOS 100vh issue
+        function setViewportHeight() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        setViewportHeight();
+        window.addEventListener('resize', setViewportHeight);
+
+        // Preload critical videos
+        const videos = document.querySelectorAll('.service-video');
+        videos.forEach(video => {
+            const source = video.querySelector('source');
+            if (source) {
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'video';
+                preloadLink.href = source.src;
+                document.head.appendChild(preloadLink);
+            }
+        });
+
+        // Lazy loading implementation for images below fold
+        if ('IntersectionObserver' in window) {
+            const lazyImages = document.querySelectorAll('img:not([src^="data:"])');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const image = entry.target;
+                        if (image.dataset.src) {
+                            image.src = image.dataset.src;
+                            image.removeAttribute('data-src');
+                        }
+                        imageObserver.unobserve(image);
+                    }
+                });
+            });
+
+            lazyImages.forEach(image => {
+                if (!image.closest('.hero') && !image.closest('.about-image') && !image.closest('.logo')) {
+                    const src = image.src;
+                    image.setAttribute('data-src', src);
+                    image.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+                    imageObserver.observe(image);
+                }
+            });
+        }
     });
 </script>
 </body>
