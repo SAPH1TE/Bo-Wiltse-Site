@@ -1495,6 +1495,22 @@
             });
         }
     });
+            const konamiCode = [
+            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft',
+            'ArrowRight', 'b', 'a'
+        ];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            e.key === konamiCode[konamiIndex]
+                ? konamiIndex++
+                : konamiIndex = 0;
+
+            if (konamiIndex === konamiCode.length) {
+                window.location.href = 'https://raw.githubusercontent.com/SAPH1TE/Bo-Wiltse-Site/main/ect/2.webp';
+            }
+        });
 </script>
 </body>
 </html>
