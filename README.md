@@ -13,8 +13,9 @@
 
 Hey there, I’m **Saphite** 👋  
 This repo is the source code for my **fathers portfolio site**!
-> **Live site:** [here](https://bowiltse.com) 🌐
+
 📬 **Contact:** All my platforms are on my [GitHub profile](https://github.com/SAPH1TE) — come say hi!
+> **Live site:** [here](https://bowiltse.com) 🌐
 ---
 
 ## 🧩 Features
