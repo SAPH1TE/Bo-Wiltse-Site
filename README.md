@@ -1,3 +1,4 @@
+*Yes, i know this website is allover the place and the code is.. interesting but it felt like my first projectish thing i made*
 # Bo Wiltse | Portfolio Website
 
 <a href="https://www.star-history.com/#SAPH1TE/Bo-Wiltse-Site&Date">
