@@ -1,4 +1,4 @@
-*Yes, i know this website is allover the place and the code is.. interesting but it felt like my first projectish thing i made*
+*Yes, i know this website is allover the place and the code is... odd
 # Bo Wiltse | Portfolio Website
 
 <a href="https://www.star-history.com/#SAPH1TE/Bo-Wiltse-Site&Date">
@@ -9,30 +9,16 @@
  </picture>
 </a>
 
-
-## 🎯 Overview
-
-Hey there, I’m **Saphite** 👋  
-This repo is the source code for my **fathers portfolio site**!
-
-📬 **Contact:** All my platforms are on my [GitHub profile](https://github.com/SAPH1TE) — come say hi!
-> **Live site:** [here](https://bowiltse.com) 🌐
----
-
-## 🧩 Features
-
   **Built with:**  
-- 💡 **HTML5**
-- 🎨 **CSS3** 
-- ⚡ **JavaScript**
-- 📃 **Githbub Pages**  (obviously 🙄)
-- ☁️ **Secured with cloudflare**
-- 🐢 A (semi :p) Responsive Design** 
+- **HTML5**
+- **CSS3** 
+- **JavaScript**
+- **Githbub Pages**  (obviously)
+- **Secured with cloudflare**
+- **A (semi) Responsive Design** 
 
 
 ---
-
-## ⚙️ Setup
 
 Want to clone or fork & mess with it? Be my guest:
 
